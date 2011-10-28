@@ -1,0 +1,10 @@
+[mailClient]
+host = smtp.qq.com
+port = 25
+user = ***
+pass = ***
+fr = xxxxxx@qq.com
+to = xxxxxx@gmail.com
+debuglevel = True
+login = False
+starttls = False
