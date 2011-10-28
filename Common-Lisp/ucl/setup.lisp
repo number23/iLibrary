@@ -1,7 +1,7 @@
 ;;;; utility common lisp
 ;;;;
 ;;;; how to setup? add into CL init file:
-;;;; (let ((ucl-init (merge-pathnames "hgroot/bitbucket.org/utilities/Common-Lisp/ucl/setup.lisp"
+;;;; (let ((ucl-init (merge-pathnames "iLibrary/Common-Lisp/ucl/setup.lisp"
 ;;;;                                  (user-homedir-pathname))))
 ;;;;  (when (probe-file ucl-init)
 ;;;;    (load ucl-init)))
