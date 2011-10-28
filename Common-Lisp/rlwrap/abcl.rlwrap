@@ -1,0 +1,12 @@
+#!/bin/sh
+BREAK_CHARS="(){}[],^%$#@\"\";''|\\"
+ABCL_JAR=$HOME/opt/abcl/abcl.jar
+JAVA=$(which java)
+ABCL="$JAVA -server -Xrs -cp $ABCL_JAR org.armedbear.lisp.Main"
+RLWRAP="rlwrap -pgreen -r --history-filename=$HOME/.abcl_history --histsize=1000000 -c -b $BREAK_CHARS -f $HOME/.abcl_completions"
+
+if [ $# -eq 0 ]; then
+  exec $RLWRAP $ABCL
+else
+  exec $ABCL "$@"
+fi

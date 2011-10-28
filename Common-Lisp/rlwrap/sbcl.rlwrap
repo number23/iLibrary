@@ -1,0 +1,9 @@
+#!/bin/sh
+BREAK_CHARS="(){}[],^%$#@\"\";''|\\"
+RLWRAP="rlwrap -pgreen -r -m -i --history-filename=$HOME/.sbcl_history --histsize=1000000 -c -b $BREAK_CHARS -f $HOME/.sbcl_completions"
+
+if [ $# -eq 0 ]; then
+  exec $RLWRAP sbcl
+else
+  exec sbcl --script $*
+fi

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="text/x-lisp">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>lisp source code</comment>
+  <comment xml:lang="ara">شفرة مصدر lisp</comment>
+  <comment xml:lang="az">Sxem mənbə kodu</comment>
+  <comment xml:lang="be@latin">Kryničny kod lisp</comment>
+  <comment xml:lang="bg">Изходен код — lisp</comment>
+  <comment xml:lang="ca">codi font en lisp</comment>
+  <comment xml:lang="cs">Zdrojový kód lisp</comment>
+  <comment xml:lang="cy">Ffynhonnell Rhaglen lisp</comment>
+  <comment xml:lang="da">lispkildekode</comment>
+  <comment xml:lang="de">lisp-Quelltext</comment>
+  <comment xml:lang="el">πηγαίος κώδικας lisp</comment>
+  <comment xml:lang="en_GB">lisp source code</comment>
+  <comment xml:lang="eo">lisp-fontkodo</comment>
+  <comment xml:lang="es">código fuente en lisp</comment>
+  <comment xml:lang="eu">lisp iturburu-kodea</comment>
+  <comment xml:lang="fi">lisp-lähdekoodi</comment>
+  <comment xml:lang="fr">code source lisp</comment>
+  <comment xml:lang="ga">cód foinseach lisp</comment>
+  <comment xml:lang="hu">lisp-forráskód</comment>
+  <comment xml:lang="id">Kode program lisp</comment>
+  <comment xml:lang="it">Codice sorgente lisp</comment>
+  <comment xml:lang="ja">lisp ソースコード</comment>
+  <comment xml:lang="ko">lisp 소스 코드</comment>
+  <comment xml:lang="lt">lisp pradinis kodas</comment>
+  <comment xml:lang="lv">lisp pirmkods</comment>
+  <comment xml:lang="ms">Kod sumber lisp</comment>
+  <comment xml:lang="nb">lisp-kildekode</comment>
+  <comment xml:lang="nl">lisp-broncode</comment>
+  <comment xml:lang="nn">lisp-kjeldekode</comment>
+  <comment xml:lang="pl">Kod źródłowy lisp</comment>
+  <comment xml:lang="pt">código fonte lisp</comment>
+  <comment xml:lang="pt_BR">Código fonte lisp</comment>
+  <comment xml:lang="ru">исходный код lisp</comment>
+  <comment xml:lang="sq">Kod burues lisp</comment>
+  <comment xml:lang="sr">lisp изворни ко̂д</comment>
+  <comment xml:lang="sv">lisp-källkod</comment>
+  <comment xml:lang="uk">Вихідний файл на мові lisp</comment>
+  <comment xml:lang="vi">Mã nguồn lisp</comment>
+  <comment xml:lang="zh_CN">lisp 源代码</comment>
+  <comment xml:lang="zh_TW">lisp 源代碼</comment>
+  <sub-class-of type="text/plain"/>
+  <glob pattern="*.lisp"/>
+</mime-type>
