@@ -1,0 +1,39 @@
+[user]
+    name = number23
+    email = number23.cn@gmail.com
+
+[alias]
+    list = config --list
+    co = checkout
+    ci = commit -a
+    st = status
+    ss = status -s
+    br = branch
+    dc = dcommit
+    rb = rebase
+    ds = diff --stat
+    dhh = diff HEAD HEAD^
+    pus = push origin master
+    push-to-bitbucket = push bitbucket master
+    unstage = reset HEAD
+    fix = reset --hard
+    patch = format-patch origin
+
+# log
+    lp = log -p
+    lg = log --oneline --decorate --graph
+    lss = log --stat --summary
+    last = log -1 HEAD
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = auto
+    interactive = auto
+
+[core]
+    editor = vim
+
+[merge]
+    tool = vimdiff
