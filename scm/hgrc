@@ -1,0 +1,28 @@
+[ui]
+ssh = ssh -C
+username = number23 <number23.cn@gmail.com>
+
+[extensions]
+color =
+pager =
+convert =
+mq =
+bookmarks =
+hggit =
+hgflow = hgflow.py path
+
+[pager]
+attend = log, diff, help
+
+[extdiff]
+cmd.vimdiff =
+
+[web]
+style= monoblue
+maxchanges = 20
+
+#[git]
+#intree = 1
+
+[hostfingerprints]
+bitbucket.org = 81:2b:08:90:dc:d3:71:ee:e0:7c:b4:75:ce:9b:6c:48:94:56:a1:fe
