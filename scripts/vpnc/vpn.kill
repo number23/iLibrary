@@ -1,0 +1,8 @@
+#! /bin/sh
+
+# find vpn sid
+sid=$(ps -ef | grep vpnc | grep -v grep | awk '{print $2}')
+sudo kill -9 $sid
+
+## more easy way
+##sudo pkill vpnc

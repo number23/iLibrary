@@ -1,0 +1,36 @@
+#! /bin/sh
+
+######## openbsd ########
+## find tun0 default gateway
+##gw=$(ifconfig | grep "\-->" | awk '{print $4}')
+##sudo vpnc --natt-mode force-natt
+
+##sudo route delete -net default
+##sudo route add -inet default $gw
+### add vpn gateway
+##gw=$(ifconfig | grep "\-->" | awk '{print $4}' | tail -1)
+##sudo route add -inet 10/8 $gw
+
+######## mac ########
+sudo vpnc --natt-mode force-natt
+
+if [ "$1" = "remote" ]
+then
+    echo ""
+    echo "use remote network"
+else
+    echo ""
+    sudo route delete -net default
+    sudo route add -inet default 192.168.0.1
+    gw=$(ifconfig | grep "\-->" | awk '{print $4}' | tail -1)
+    ##sudo route add -inet 10.1.8.1/8 $gw
+    sudo route add -inet 10.0.0.1/8 $gw
+
+    # re-write /etc/resolv.conf
+    echo ""
+    echo "re-write /etc/resolv.conf by vpn script"
+    sudo sh -c "echo domain domain.actdsltmp > /etc/resolv.conf"
+    sudo sh -c "echo nameserver 127.0.0.1 >> /etc/resolv.conf"
+    sudo sh -c "echo nameserver 8.8.8.8 >> /etc/resolv.conf"
+    echo "nameserver 192.168.0.1" | sudo tee -a /etc/resolv.conf
+fi
