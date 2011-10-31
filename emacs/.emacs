@@ -50,16 +50,18 @@
 (set-scroll-bar-mode nil)
 ;;(customize-set-variable 'scroll-bar-mode 'right)
 
-(if (eq system-type 'darwin)
-  (progn
-    (setq ns-pop-up-frames nil)
-    (set-frame-font "Monaco:style=Roman:size=16")))
+(when window-system
+  (if (eq system-type 'darwin)
+      (progn
+        (setq ns-pop-up-frames nil)
+        (set-frame-font "Monaco:style=Roman:size=16")))
 
-(if (eq system-type 'gnu/linux)
-  (progn
-    (tool-bar-mode nil)
-;;  (set-default-font "YaHei Consolas Hybrid-12")
-    (set-default-font "Consolas-12:bold")))
+  (if (eq system-type 'gnu/linux)
+      (progn
+        (tool-bar-mode nil)
+        ;;  (set-default-font "YaHei Consolas Hybrid-12")
+        (set-default-font "Consolas-12:bold")))
+)
 
 (setq default-major-mode 'text-mode)
 (setq default-fill-column 80)
@@ -80,30 +82,21 @@
 (setq kill-ring-max 200)
 (setq-default require-final-newline t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(server-start)
-
 (add-to-list 'load-path' "~/.emacs.d/site-lisp")
-(require 'color-theme)
-(color-theme-classic)
+
+(when window-system
+  (require 'color-theme)
+  (color-theme-classic)
 ;;(require 'calendar-setting)
-
-(defun copy-lines (&optional arg)
-  (interactive "P")
-  (save-excursion
-    (beginning-of-line)
-    (set-mark (point))
-    (next-line arg)
-    (kill-ring-save (mark) (point))))
-
-(global-set-key (kbd "C-c C-w") 'copy-lines)
-(global-set-key (kbd "M-d") 'kill-whole-line)
-(global-set-key (kbd "C-c C-j") 'join-line)
+  (server-start)
+)
 
 ;; slime
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/ccl")
 (setq common-lisp-hyperspec-root "http://127.0.0.1/docs/HyperSpec-7-0/HyperSpec/")
-(slime)
+(if window-system
+  (slime))
 
 (defun lisp-indent-or-complete (&optional arg)
   (interactive "P")
@@ -151,22 +144,24 @@
   (setq w3m-default-display-inline-image t)
   (setq w3m-default-toggle-inline-images t))
 
+(when window-system
 ;; ibus
-(when (eq system-type 'gnu/linux)
-  (require 'ibus)
-  (add-hook 'after-init-hook 'ibus-mode-on)
-  (ibus-define-common-key ?\C-\s nil)
-  (ibus-define-common-key ?\C-/ nil)
-  (ibus-define-common-key ?\S-\s nil)
-  (global-set-key (kbd "S-SPC") 'ibus-toggle)
-  (global-set-key (kbd "C-x M-i") 'ibus-mode)
-  (setq ibus-cursor-color '("red" "white" "limegreen")))
+  (when (eq system-type 'gnu/linux)
+    (require 'ibus)
+    (add-hook 'after-init-hook 'ibus-mode-on)
+    (ibus-define-common-key ?\C-\s nil)
+    (ibus-define-common-key ?\C-/ nil)
+    (ibus-define-common-key ?\S-\s nil)
+    (global-set-key (kbd "S-SPC") 'ibus-toggle)
+    (global-set-key (kbd "C-x M-i") 'ibus-mode)
+    (setq ibus-cursor-color '("red" "white" "limegreen")))
 
 ;; geometry for linux
-(if (eq system-type 'gnu/linux)
-  (setq default-frame-alist
-        '((top . 0) (left . 250)
-          (width . 90) (height . 30))))
+  (if (eq system-type 'gnu/linux)
+      (setq default-frame-alist
+            '((top . 0) (left . 250)
+              (width . 90) (height . 30))))
+)
 
 ;; recentf
 (recentf-mode t)
@@ -174,7 +169,7 @@
 (setq recentf-auto-cleanup 300)
 (setq recentf-save-file "~/.emacs.d/recentf-list")
 
-;; reload
+;; misc functions
 (defun reload-dot-emacs ()
   "Save the .emacs buffer if needed, then reload .emacs."
   (interactive)
@@ -183,6 +178,18 @@
          (save-buffer (get-file-buffer dot-emacs)))
     (load-file dot-emacs))
   (message "Re-initialized!"))
+
+(defun copy-lines (&optional arg)
+  (interactive "P")
+  (save-excursion
+    (beginning-of-line)
+    (set-mark (point))
+    (next-line arg)
+    (kill-ring-save (mark) (point))))
+
+(global-set-key (kbd "C-c C-w") 'copy-lines)
+(global-set-key (kbd "M-d") 'kill-whole-line)
+(global-set-key (kbd "C-c C-j") 'join-line)
 
 ;; js2-mode
 ;; emacs -batch -f batch-byte-compile *.el
