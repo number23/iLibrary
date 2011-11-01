@@ -9,8 +9,8 @@
     st = status
     ss = status -s
     br = branch
-    dc = dcommit
-    rb = rebase
+    df = diff
+    dc = diff --cached
     ds = diff --stat
     dhh = diff HEAD HEAD^
     pus = push origin master
@@ -18,6 +18,8 @@
     unstage = reset HEAD
     fix = reset --hard
     patch = format-patch origin
+    rb = rebase
+    ls = ls-files
 
 # log
     lp = log -p
