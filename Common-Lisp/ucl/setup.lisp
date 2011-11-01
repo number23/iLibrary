@@ -23,7 +23,11 @@
 ;;
 ;;(load (ucl-merge "ucl-01.lisp"))
 
-(dolist (f (directory (concatenate 'string
-                                   (directory-namestring *ucl-home*)
-                                   "ucl*.lisp")))
-  (load f))
+;;(dolist (f (directory (concatenate 'string
+;;                                   (directory-namestring *ucl-home*)
+;;                                   "ucl*.lisp")))
+;;  (load f))
+
+(mapcar #'load (directory (concatenate 'string
+                                       (directory-namestring *ucl-home*)
+                                       "ucl*.lisp")))
