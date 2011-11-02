@@ -1,3 +1,5 @@
 *.py[co]
 *.elc
 .DS_Store
+profiles/.vim/backup
+profiles/.vim/swp
