@@ -28,10 +28,10 @@
     last = log -1 HEAD
 
 [color]
+    ui = true
     diff = auto
     status = auto
     branch = auto
-    ui = auto
     interactive = auto
 
 [core]
