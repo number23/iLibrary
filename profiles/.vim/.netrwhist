@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/number23/.aliasrc.d'
-let g:netrw_dirhist_2='/Users/number23'
-let g:netrw_dirhist_3='/Users'
-let g:netrw_dirhist_4='/'
-let g:netrw_dirhist_5='/Users/number23/iCal 2011-07-08.icbu'
-let g:netrw_dirhist_6='/Users/number23/iCal 2011-07-08.icbu/Calendars'
