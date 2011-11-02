@@ -30,4 +30,4 @@
 
 (mapcar #'load (directory (concatenate 'string
                                        (directory-namestring *ucl-home*)
-                                       "ucl*.lisp")))
+                                       "ucl-*.lisp")))
