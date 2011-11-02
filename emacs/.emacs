@@ -60,8 +60,7 @@
       (progn
         (tool-bar-mode nil)
         ;;  (set-default-font "YaHei Consolas Hybrid-12")
-        (set-default-font "Consolas-12:bold")))
-)
+        (set-default-font "Consolas-12:bold"))))
 
 (setq default-major-mode 'text-mode)
 (setq default-fill-column 80)
@@ -160,8 +159,7 @@
   (if (eq system-type 'gnu/linux)
       (setq default-frame-alist
             '((top . 0) (left . 250)
-              (width . 90) (height . 30))))
-)
+              (width . 90) (height . 30)))))
 
 ;; recentf
 (recentf-mode t)
