@@ -1,0 +1,4 @@
+#! /bin/sh
+
+sid=$(ps -ef | grep ssh | grep 3121 | grep -v grep | awk '{print $2}')
+sudo kill -9 $sid
