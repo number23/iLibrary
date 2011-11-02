@@ -1,0 +1,10 @@
+# Django
+alias Django.runserver='manage.py runserver'
+
+# scm
+alias hg.pus.and.git='hg pus; hg pus git'
+alias git.push.all='git pus; git push-to-bitbucket'
+
+# gcc
+alias gcc.Foundation='gcc -framework Foundation'
+alias gcc.AppKit='gcc -framework AppKit'

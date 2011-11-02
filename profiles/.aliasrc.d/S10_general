@@ -1,0 +1,66 @@
+# folder
+alias bin='cd ~/bin'
+alias tmp='cd ~/tmp'
+alias my='cd ~/my'
+alias dev='cd ~/dev'
+alias iLibrary='cd ~/iLibrary'
+alias ilibrary='cd ~/iLibrary'
+alias gitroot='cd ~/gitroot'
+alias hgroot='cd ~/hgroot'
+alias bitbucket.org='cd ~/hgroot/bitbucket.org'
+
+# ls
+#alias sls='env LC_ALL=en_US.ISO8859-1 ls -FTh'
+alias ls='ls -GF'
+alias ll='ls -la'
+alias lt='ls -lth'
+alias lh='lt | head'
+
+## vi
+## alias vi='env LC_ALL=en_US.ISO8859-1 vim -p'
+#alias vim='env TERM=xterm-color vim'
+#alias svi='/usr/bin/vi'
+#alias vr='vi -R'
+
+# man
+#alias w3m='w3m -no-mouse'
+#alias man='env LC_ALL=en_US.ISO8859-1 w3mman'
+#alias sman='/usr/bin/man -m $HOME/tools/man'
+#alias is='whatis'
+
+# kill
+alias top='top -u -s 1'
+alias tlist='ps -U number23'
+alias kill='kill -9'
+
+# inet
+alias check='ping 202.96.134.134'
+#alias net='sudo ppp -ddial pppoe'
+#alias ipv6='cd $HOME/tools/gw6c/bin; sudo gw6c'
+#alias lftp='env LC_ALL=en_US.ISO8859-1 lftp'
+#alias wget='env LC_ALL=en_US.ISO8859-1 wget -c -t 100'
+#alias wget.all='env LC_ALL=en_US.ISO8859-1 wget -c -t 100 -r -p -np -k'
+#alias proz='proz -k=10 -r'
+#alias proxy='export http_proxy=http://127.0.0.1:3128;
+#             export ftp_proxy=http://127.0.0.1:3128'
+#alias noproxy='unset http_proxy; unset ftp_proxy'
+
+# command
+alias rm='rm -iP'
+alias df='df -ih'
+alias du='du -h'
+alias diff='diff -ub'
+#alias glib='cc -Wall -W $(pkg-config --cflags --libs glib-2.0) -o $HOME/bin/run'
+#alias smtpClient='smtpClient -s $u/.signature'
+alias mail.vacuum='sqlite3 ~/Library/Mail/Envelope\ Index vacuum'
+alias t=task
+alias ec='emacsclient -n'
+alias brew.install='sudo brew install -v'
+
+alias start.xp='VBoxManage startvm XP --type headless'
+alias stop.xp='VBoxManage controlvm XP poweroff'
+
+alias youtube-dl.proxychains='cd $HOME/opt/proxychains/bin; proxychains youtube-dl -l -c -f 18'
+alias youtube.task.list='task all youtube'
+
+alias update.ccl='cd $HOME/opt/ccl; svn up; ccl --eval "(progn (ccl:rebuild-ccl :full t) (quit))"'
