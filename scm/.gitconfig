@@ -29,10 +29,10 @@
 
 [color]
     ui = true
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
+#    diff = auto
+#    status = auto
+#    branch = auto
+#    interactive = auto
 
 [core]
     editor = vim
