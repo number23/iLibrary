@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# alias s.get='scp.wrap xxx.xxx.xxx.xxx $HOME/files/ get'
+# alias s.put='scp.wrap xxx.xxx.xxx.xxx $HOME/files/ put'
+
+host=$1
+dir=$2
+flag=$3
+shift
+shift
+shift
+
+if [ $flag = 'get' ]
+then
+    for i in $@
+    do
+        line="scp -24Cpr $host:$dir$i $i"
+        echo $line
+        exec $line
+    done
+else
+    for i in $@
+    do
+        line="scp -24Cpr $i $host:$dir$i"
+        echo $line
+        exec $line
+    done
+fi
