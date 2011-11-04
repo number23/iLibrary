@@ -169,15 +169,6 @@
 (setq recentf-save-file "~/.emacs.d/recentf-list")
 
 ;; misc functions
-(defun reload-dot-emacs ()
-  "Save the .emacs buffer if needed, then reload .emacs."
-  (interactive)
-  (let ((dot-emacs "~/.emacs"))
-    (and (get-file-buffer dot-emacs)
-         (save-buffer (get-file-buffer dot-emacs)))
-    (load-file dot-emacs))
-  (message "Re-initialized!"))
-
 (defun copy-lines (&optional arg)
   (interactive "P")
   (save-excursion
@@ -186,9 +177,22 @@
     (next-line arg)
     (kill-ring-save (mark) (point))))
 
+(defun switch-buffer-scratch ()
+  "Switch to the scratch buffer. If the buffer doesn't exist"
+  (interactive)
+  (let* ((scratch-buffer-name "*scratch*")
+         (scratch-buffer (get-buffer scratch-buffer-name)))
+    (unless scratch-buffer
+      (setq scratch-buffer (get-buffer-create scratch-buffer-name))
+      (with-current-buffer scratch-buffer
+        (lisp-interaction-mode)))
+    (switch-to-buffer scratch-buffer)))
+
+
 (global-set-key (kbd "C-c C-w") 'copy-lines)
 (global-set-key (kbd "M-d") 'kill-whole-line)
 (global-set-key (kbd "C-c C-j") 'join-line)
+(global-set-key "\C-cbs" 'switch-buffer-scratch)
 
 ;; js2-mode
 ;; emacs -batch -f batch-byte-compile *.el
