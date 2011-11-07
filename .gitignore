@@ -4,3 +4,5 @@
 .DS_Store
 profiles/.vim/backup
 profiles/.vim/swp
+*.lx64fsl
+*.dx64fsl
