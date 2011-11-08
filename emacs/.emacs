@@ -88,8 +88,8 @@
   (require 'color-theme)
   (color-theme-classic)
 ;;(require 'calendar-setting)
-  (server-start)
-)
+  (load "server")
+  (unless (server-running-p) (server-start)))
 
 ;; slime
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
