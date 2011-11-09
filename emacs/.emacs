@@ -83,6 +83,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-to-list 'load-path' "~/.emacs.d/site-lisp")
 (global-auto-revert-mode t)
+(setq vc-follow-symlinks t)
 
 (when window-system
   (require 'color-theme)
