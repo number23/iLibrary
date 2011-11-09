@@ -96,8 +96,7 @@
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/ccl")
 (setq common-lisp-hyperspec-root "http://127.0.0.1/docs/HyperSpec-7-0/HyperSpec/")
-(if window-system
-  (slime))
+(if window-system (slime))
 
 (defun lisp-indent-or-complete (&optional arg)
   (interactive "P")
@@ -145,23 +144,20 @@
   (setq w3m-default-display-inline-image t)
   (setq w3m-default-toggle-inline-images t))
 
-(when window-system
-;; ibus
-  (when (eq system-type 'gnu/linux)
-    (require 'ibus)
-    (add-hook 'after-init-hook 'ibus-mode-on)
-    (ibus-define-common-key ?\C-\s nil)
-    (ibus-define-common-key ?\C-/ nil)
-    (ibus-define-common-key ?\S-\s nil)
-    (global-set-key (kbd "S-SPC") 'ibus-toggle)
-    (global-set-key (kbd "C-x M-i") 'ibus-mode)
-    (setq ibus-cursor-color '("red" "white" "limegreen")))
-
-;; geometry for linux
-  (if (eq system-type 'gnu/linux)
-      (setq default-frame-alist
-            '((top . 0) (left . 250)
-              (width . 90) (height . 30)))))
+;; ibus and geometry for linux X window
+(when (and (eq window-system 'x)
+           (eq system-type 'gnu/linux))
+  (require 'ibus)
+  (add-hook 'after-init-hook 'ibus-mode-on)
+  (ibus-define-common-key ?\C-\s nil)
+  (ibus-define-common-key ?\C-/ nil)
+  (ibus-define-common-key ?\S-\s nil)
+  (global-set-key (kbd "S-SPC") 'ibus-toggle)
+  (global-set-key (kbd "C-x M-i") 'ibus-mode)
+  (setq ibus-cursor-color '("red" "white" "limegreen"))
+  (setq default-frame-alist
+        '((top . 0) (left . 250)
+          (width . 90) (height . 30))))
 
 ;; recentf
 (recentf-mode t)
@@ -188,7 +184,6 @@
       (with-current-buffer scratch-buffer
         (lisp-interaction-mode)))
     (switch-to-buffer scratch-buffer)))
-
 
 (global-set-key (kbd "C-c C-w") 'copy-lines)
 (global-set-key (kbd "M-d") 'kill-whole-line)
