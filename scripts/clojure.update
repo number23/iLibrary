@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# from http://riddell.us/ClojureSwankLeiningenWithEmacsOnLinux.html
+#      http://en.wikibooks.org/wiki/Learning_Clojure/Installation
+
+# cd ~/opt
+# git clone git://github.com/clojure/clojure.git
+# git clone git://github.com/clojure/clojure-contrib.git
+# export CLOJURE_EXT=~/.clojure
+# export PATH=$PATH:~/opt/clojure-contrib/launchers/bash
+# alias clj=clj-env-dir
+
+cd ~/opt/clojure
+git pull
+ant
+cp clojure.jar ~/.clojure
+cd ~/opt/clojure-contrib
+git pull
+mvn install
+cp modules/complete/target/complete*.jar ~/.clojure/clojure-contrib.jar

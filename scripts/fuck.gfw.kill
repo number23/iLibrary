@@ -1,4 +1,7 @@
 #! /bin/sh
 
+# bbs.alais='ssh -2CNf -L 8022:bbs.newsmth.net:22 xxx.xxx.xxx.xxx'
+# alias fuck.gfw='ssh -2qTnCNf -D 3121 xxx.xxx.xxx.xxx'
+
 sid=$(ps -ef | grep ssh | grep 3121 | grep -v grep | awk '{print $2}')
 sudo kill -9 $sid
