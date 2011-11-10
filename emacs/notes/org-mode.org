@@ -1,0 +1,19 @@
+#+STARTUP: overview
+
+* 移动
+同级 	C-c C-f 	C-c C-b
+跨级 	C-c C-n 	C-c C-p
+上一级 	C-c C-u
+跳转 	C-c C-j
+* 对分支结构进行修改
+C-RET 	        加入新的同级标识
+M-left 	        将当前项提升一级
+M-right 	    将当前项降低一级
+M-S-left 	    将当前分支提升一级
+M-S-right 	    将当前分支降低一级
+M-S-up 	        将当前分支向上移动
+M-S-down 	    将当前分支向下移动
+C-c C-x C-k 	删除当前分支
+C-c C-x M-w 	复制当前分支
+C-c C-x C-y 	粘贴分支
+C-c C-w 	    移动当前分支
