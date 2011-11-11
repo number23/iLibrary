@@ -20,6 +20,7 @@
     patch = format-patch origin
     rb = rebase
     ls = ls-files
+    remote-details = remote show origin
 
 # log
     lp = log -p
