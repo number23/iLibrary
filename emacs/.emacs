@@ -96,7 +96,7 @@
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/ccl")
 (setq common-lisp-hyperspec-root "http://127.0.0.1/docs/HyperSpec-7-0/HyperSpec/")
-(if window-system (slime))
+;;(if window-system (slime))
 
 (defun lisp-indent-or-complete (&optional arg)
   (interactive "P")
@@ -194,3 +194,7 @@
 ;; emacs -batch -f batch-byte-compile *.el
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;; clojure-mode
+(add-to-list 'load-path "~/opt/clojure-mode")
+(require 'clojure-mode)

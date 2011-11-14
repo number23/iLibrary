@@ -1,6 +1,4 @@
-(def completions
-    (reduce concat (map (fn [p] (keys (ns-publics (find-ns p))))
-                        '(clojure.core clojure.set clojure.xml clojure.zip))))
+(def completions (mapcat (comp keys ns-publics) (all-ns)))
 
 (with-open [f (java.io.BufferedWriter. (java.io.FileWriter. (str (System/getenv "HOME") "/.clj_completions")))]
     (.write f (apply str (interleave completions (repeat "\n")))))

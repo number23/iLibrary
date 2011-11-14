@@ -7,6 +7,9 @@
 # git clone git://github.com/clojure/clojure.git
 # git clone git://github.com/clojure/clojure-contrib.git
 
+# git clone git://github.com/jochu/clojure-mode.git
+# git clone git://github.com/jochu/swank-clojure.git
+
 cd ~/opt/clojure
 git pull
 ant
@@ -14,5 +17,5 @@ cp clojure.jar ~/.clojure
 cd ~/opt/clojure-contrib
 git pull
 #mvn install
-mvn package
+mvn package -DskipTests
 cp modules/standalone/target/standalone*.jar ~/.clojure/clojure-contrib.jar

@@ -17,7 +17,7 @@ if [ -n "${CLOJURE_EXT:-}" ]; then
 fi
 
 
-JAVA=${CLOJURE_JAVA:-java}
+JAVA=${CLOJURE_JAVA:-java -server}
 OPTS=${CLOJURE_OPTS:-}
 MAIN=${CLOJURE_MAIN:-clojure.main}
 
