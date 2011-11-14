@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -o errexit
+#set -o nounset
+#set -o xtrace
+
+if [ -n "${CLOJURE_EXT:-}" ]; then
+    OLD="$IFS"
+    IFS=":"
+    EXT="$(find -H $CLOJURE_EXT -mindepth 1 -maxdepth 1 -print0 | tr \\0 \:)"
+    IFS="$OLD"
+    if [ -n "${CLASSPATH:-}" ]; then
+        export CLASSPATH="$EXT$CLASSPATH"
+    else
+        export CLASSPATH="${EXT%:}"
+    fi
+fi
+
+
+JAVA=${CLOJURE_JAVA:-java}
+OPTS=${CLOJURE_OPTS:-}
+MAIN=${CLOJURE_MAIN:-clojure.main}
+
+#exec $JAVA $OPTS $MAIN "$@"
+#exec $JAVA $OPTS jline.ConsoleRunner $MAIN "$@"
+
+breakchars="(){}[],^%$#@\"\";:''|\\"
+if [ $# -eq 0 ]; then
+    exec rlwrap --remember -c -b $breakchars \
+        -f $HOME/.clj_completions \
+        $JAVA $OPTS $MAIN -i $HOME/.clojure.clj --repl
+else
+    exec $JAVA $OPTS $MAIN $1 -- "$@"
+fi
