@@ -1,6 +1,7 @@
 #!/bin/sh
 
 export CLOJURE_EXT=$HOME/.clojure
+export CLOJURE_OPTS="-Xmx1g -server"
 
 set -o errexit
 #set -o nounset
@@ -19,7 +20,7 @@ if [ -n "${CLOJURE_EXT:-}" ]; then
 fi
 
 
-JAVA=${CLOJURE_JAVA:-java -server}
+JAVA=${CLOJURE_JAVA:-java}
 OPTS=${CLOJURE_OPTS:-}
 MAIN=${CLOJURE_MAIN:-clojure.main}
 
