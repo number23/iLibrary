@@ -5,7 +5,7 @@ export CLOJURE_OPTS="-Xmx1g -server"
 
 for jar in $(ls $CLOJURE_EXT/*.jar)
 do
-    CLASSPATH="$jar:$CLASSPATH"
+    export CLASSPATH="$CLASSPATH:$jar"
 done
 
 set -o errexit
