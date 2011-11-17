@@ -114,6 +114,7 @@
 (setq slime-autodoc-use-multiline-p t)
 (setq slime-repl-history-remove-duplicates t)
 (setq slime-repl-history-trim-whitespaces t)
+(setq slime-net-coding-system 'utf-8-unix)
 
 ;; python-mode
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
@@ -199,5 +200,3 @@
 (add-to-list 'load-path "~/opt/clojure-mode")
 (require 'clojure-mode)
 (require 'c-slime-autodoc)              ; slime-autodoc
-
-
