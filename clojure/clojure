@@ -3,26 +3,8 @@
 export CLOJURE_EXT=$HOME/.clojure
 export CLOJURE_OPTS="-Xmx1g -server"
 
-for jar in $(ls $CLOJURE_EXT/*.jar)
-do
-    export CLASSPATH="$CLASSPATH:$jar"
-done
-
-set -o errexit
-#set -o nounset
-#set -o xtrace
-
-#if [ -n "${CLOJURE_EXT:-}" ]; then
-#    OLD="$IFS"
-#    IFS=":"
-#    EXT="$(find -H $CLOJURE_EXT -mindepth 1 -maxdepth 1 -print0 | tr \\0 \:)"
-#    IFS="$OLD"
-#    if [ -n "${CLASSPATH:-}" ]; then
-#        export CLASSPATH="$EXT$CLASSPATH"
-#    else
-#        export CLASSPATH="${EXT%:}"
-#    fi
-#fi
+LIBS=$(ls -1 $CLOJURE_EXT/* 2> /dev/null)
+export CLASSPATH=$CLASSPATH:"$(echo "$LIBS" | tr \\n :)"
 
 JAVA=${CLOJURE_JAVA:-java}
 OPTS=${CLOJURE_OPTS:-}
