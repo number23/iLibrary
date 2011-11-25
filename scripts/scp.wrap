@@ -10,19 +10,18 @@ shift
 shift
 shift
 
-if [ $flag = 'get' ]
-then
+if [ $flag = 'get' ]; then
     for i in $@
     do
         line="scp -24Cpr $host:$dir$i $i"
         echo $line
-        exec $line
+        $line
     done
 else
     for i in $@
     do
         line="scp -24Cpr $i $host:$dir$i"
         echo $line
-        exec $line
+        $line
     done
 fi
