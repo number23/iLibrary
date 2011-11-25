@@ -197,6 +197,6 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; clojure-mode
-(add-to-list 'load-path "~/opt/clojure-mode")
+(add-to-list 'load-path "~/opt/clojure/clojure-mode")
 (require 'clojure-mode)
 (require 'c-slime-autodoc)              ; slime-autodoc

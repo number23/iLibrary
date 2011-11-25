@@ -15,11 +15,11 @@
 # lein plugin install lein-clojars 0.6.0
 # export PATH=~/.lein/bin:$PATH
 
-cd ~/opt/clojure
+cd ~/opt/clojure/clojure
 git pull
 ant
 cp clojure.jar ~/.clojure
-cd ~/opt/clojure-contrib
+cd ~/opt/clojure/clojure-contrib
 git pull
 mvn package -DskipTests
 cp modules/standalone/target/standalone*.jar ~/.clojure/clojure-contrib.jar
