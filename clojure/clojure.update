@@ -4,7 +4,7 @@ export CUR="$PWD"
 export DST=~/opt/clojure
 export TARGET=~/.clojure
 
-function checkout () {
+checkout () {
     cd $DST
     for i in $(ls -l | grep '^d' | awk '{print $NF}')
     do
@@ -14,7 +14,7 @@ function checkout () {
     done
 }
 
-function fn () {
+fn () {
     if [ ! -d $TARGET ]; then
         mkdir $TARGET
     fi
