@@ -1,8 +1,8 @@
 #!/bin/sh
 
 export CUR="$PWD"
-export DST=~/opt/clojure
-export TARGET=~/.clojure
+export DST=$HOME/opt/clojure
+export TARGET=$HOME/.clojure
 
 checkout () {
     cd $DST
