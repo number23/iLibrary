@@ -23,8 +23,8 @@ else
     sudo route delete -net default
     sudo route add -inet default 192.168.0.1
     gw=$(ifconfig | grep "\-->" | awk '{print $4}' | tail -1)
-    ##sudo route add -inet 10.1.8.1/8 $gw
-    sudo route add -inet 10.0.0.1/8 $gw
+    sudo route add -inet 10.0.0.0/8 $gw
+    #sudo route add -inet 192.168.3.0 $gw
 
     # re-write /etc/resolv.conf
     echo ""
