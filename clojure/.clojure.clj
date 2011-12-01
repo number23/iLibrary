@@ -5,6 +5,9 @@
   from http://www.newsmth.net/bbscon.php?bid=579&id=25982"
   [s] `(filter #(>= (.indexOf (str %) (name '~s)) 0)
                (sort (keys (mapcat ns-publics (all-ns))))))
+
+;; (defmacro unless [& args] `(when-not ~@args))
+;; (clojure.contrib.def/defalias unless when-not)
 (defmacro unless [condition & body]
   `(if (not ~condition)
      (do ~@body)))
