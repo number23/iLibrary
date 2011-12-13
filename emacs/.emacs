@@ -97,6 +97,7 @@
 (setq inferior-lisp-program "/usr/local/bin/ccl")
 (setq common-lisp-hyperspec-root "http://127.0.0.1/docs/HyperSpec-7-0/HyperSpec/")
 ;;(if window-system (slime))
+(eval-after-load 'slime '(setq slime-protocol-version 'ignore))
 
 (defun lisp-indent-or-complete (&optional arg)
   (interactive "P")
