@@ -85,12 +85,21 @@
 (global-auto-revert-mode t)
 (setq vc-follow-symlinks t)
 
+(require 'c-w3m)
+(require 'c-ibus)
+
 (when window-system
   (require 'color-theme)
   (color-theme-classic)
 ;;(require 'calendar-setting)
   (load "server")
   (unless (server-running-p) (server-start)))
+
+;; recentf
+(recentf-mode t)
+(setq recentf-max-saved-items 30)
+(setq recentf-auto-cleanup 300)
+(setq recentf-save-file "~/.emacs.d/recentf-list")
 
 ;; slime
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
@@ -133,65 +142,6 @@
 (autoload 'pymacs-call "pymacs")
 (require 'pycomplete)
 
-;; w3m
-(when (eq system-type 'gnu/linux)
-  (autoload 'w3m "w3m" "Interface for w3m on Emacs." t)
-  (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
-  (autoload 'w3m-search "w3m-search" "Search words using emacs-w3m." t)
-  (setq browse-url-browser-function 'w3m-browse-url)
-  (setq w3m-command-arguments '("-cookie" "-F"))
-  (setq w3m-use-cookies t)
-  (setq w3m-home-page "http://www.google.com/")
-  (require 'mime-w3m)
-  (setq w3m-default-display-inline-image t)
-  (setq w3m-default-toggle-inline-images t))
-
-;; ibus and geometry for linux X window
-(when (and (eq window-system 'x)
-           (eq system-type 'gnu/linux))
-  (require 'ibus)
-  (add-hook 'after-init-hook 'ibus-mode-on)
-  (ibus-define-common-key ?\C-\s nil)
-  (ibus-define-common-key ?\C-/ nil)
-  (ibus-define-common-key ?\S-\s nil)
-  (global-set-key (kbd "S-SPC") 'ibus-toggle)
-  (global-set-key (kbd "C-x M-i") 'ibus-mode)
-  (setq ibus-cursor-color '("red" "white" "limegreen"))
-  (setq default-frame-alist
-        '((top . 0) (left . 250)
-          (width . 90) (height . 30))))
-
-;; recentf
-(recentf-mode t)
-(setq recentf-max-saved-items 30)
-(setq recentf-auto-cleanup 300)
-(setq recentf-save-file "~/.emacs.d/recentf-list")
-
-;; misc functions
-(defun copy-lines (&optional arg)
-  (interactive "P")
-  (save-excursion
-    (beginning-of-line)
-    (set-mark (point))
-    (next-line arg)
-    (kill-ring-save (mark) (point))))
-
-(defun switch-buffer-scratch ()
-  "Switch to the scratch buffer. If the buffer doesn't exist"
-  (interactive)
-  (let* ((scratch-buffer-name "*scratch*")
-         (scratch-buffer (get-buffer scratch-buffer-name)))
-    (unless scratch-buffer
-      (setq scratch-buffer (get-buffer-create scratch-buffer-name))
-      (with-current-buffer scratch-buffer
-        (lisp-interaction-mode)))
-    (switch-to-buffer scratch-buffer)))
-
-(global-set-key (kbd "C-c C-w") 'copy-lines)
-(global-set-key (kbd "M-d") 'kill-whole-line)
-(global-set-key (kbd "C-c C-j") 'join-line)
-(global-set-key "\C-cbs" 'switch-buffer-scratch)
-
 ;; js2-mode
 ;; emacs -batch -f batch-byte-compile *.el
 (autoload 'js2-mode "js2" nil t)
@@ -216,3 +166,27 @@
                                                            "\u0192") nil))))))
 (add-hook 'clojure-mode-hook 'esk-pretty-fn)
 (add-hook 'clojurescript-mode-hook 'esk-pretty-fn)
+
+;; misc functions
+(defun copy-lines (&optional arg)
+  (interactive "P")
+  (save-excursion
+    (beginning-of-line)
+    (set-mark (point))
+    (next-line arg)
+    (kill-ring-save (mark) (point))))
+
+(defun switch-buffer-scratch ()
+  "Switch to the scratch buffer. If the buffer doesn't exist"
+  (interactive)
+  (let* ((scratch-buffer-name "*scratch*")
+         (scratch-buffer (get-buffer scratch-buffer-name)))
+    (unless scratch-buffer
+      (setq scratch-buffer (get-buffer-create scratch-buffer-name))
+      (with-current-buffer scratch-buffer
+        (lisp-interaction-mode)))
+    (switch-to-buffer scratch-buffer)))
+
+(global-set-key (kbd "C-c C-w") 'copy-lines)
+(global-set-key (kbd "C-c C-j") 'join-line)
+(global-set-key "\C-cbs" 'switch-buffer-scratch)
