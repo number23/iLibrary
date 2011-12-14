@@ -201,3 +201,18 @@
 (add-to-list 'load-path "~/opt/clojure/clojure-mode")
 (require 'clojure-mode)
 (require 'c-slime-autodoc)              ; slime-autodoc
+
+;; paredit
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code." t)
+(dolist (mode '(scheme emacs-lisp lisp clojure clojurescript))
+  (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
+            (lambda () (paredit-mode t))))
+
+(defun esk-pretty-fn ()
+  (font-lock-add-keywords nil `(("(\\(fn\\>\\)"
+                                 (0 (progn (compose-region (match-beginning 1)
+                                                           (match-end 1)
+                                                           "\u0192") nil))))))
+(add-hook 'clojure-mode-hook 'esk-pretty-fn)
+(add-hook 'clojurescript-mode-hook 'esk-pretty-fn)
