@@ -1,0 +1,43 @@
+(import [& import-lists])
+
+(. class-or-instance member-symbol & args)
+(. class-or-instance (member-symbol & args))
+(.. class-or-instance form & forms)
+
+(.method object arguments)
+
+(doto class-or-inst & member-access-forms)
+
+Java                             Clojure                              Sugared
+new Widget("red")                (new Widget "red")                   (Widget. "red")
+Math.PI                          (. Math PI)                          Math/PI
+System.currentTimeMillis()       (. System currentTimeMillis)         (System/currentTimeMillis)
+rnd.nextInt()                    (. rnd nextInt)                      (.nextInt rnd)
+person.getAddress().getZipCode() (. (. person getAddress) getZipCode) (.. person getAddress getZipCode)
+
+Parameter Usage
+a         A Java array
+agt       An agent
+coll      A collection
+expr      An expression
+f         A function
+idx       Index
+r         A ref
+v         A vector
+val       A value
+
+
+(def stu {:name "Stu" :email "stu@thinkrelevance.com" })
+(def serializable-stu (with-meta stu {:serializable true}))
+
+(= stu serializable-stu) => true
+(identical? stu serializable-stu) => false
+
+
+Model        Usage                               Functions
+Refs and STM Coordinated, synchronous updates    Pure
+Atoms        Uncoordinated, synchronous updates  Pure
+Agents       Uncoordinated, asynchronous updates Any
+Vars         Thread-local dynamic scopes         Any
+Java locks   Coordinated, synchronous updates    Any
+

@@ -1,5 +1,5 @@
-(defn exit [] (System/exit 0))
-(defn quit [] (System/exit 0))
+(use 'org.clojars.number23_cn.commons-lib.io)
+(use 'org.clojars.number23_cn.commons-lib.util)
 
 (defmacro kw
   "查询当前所有ns中含特定字符串的函数，如: (kw -index)
@@ -13,15 +13,3 @@
   `(if (not ~condition)
      (do ~@body)))
 
-;;; from http://thinkrelevance.com/blog/2008/09/16/pcl-clojure-chapter-3.html
-(defn prompt-read [prompt]
-  (print (format "%s: " prompt))
-  (flush)
-  (read-line))
-
-(defn y-or-n-p [prompt]
-  (= "y"
-     (loop []
-       (or
-        (re-matches #"[yn]" (.toLowerCase (prompt-read prompt)))
-        (recur)))))
