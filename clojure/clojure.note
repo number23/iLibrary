@@ -41,3 +41,16 @@ Agents       Uncoordinated, asynchronous updates Any
 Vars         Thread-local dynamic scopes         Any
 Java locks   Coordinated, synchronous updates    Any
 
+user=> (-> 2       ; 2
+           (* 2)   ; (* 2 2)
+           (+ 10)  ; (+ (* 2 2) 10)
+           (/ 2)   ; (/ (+ (* 2 2) 10) 2)
+           (* 6))  ; (* (/ (+ (* 2 2) 10) 2) 6)
+;=> 42
+
+user=> (->> 2       ; 2
+            (* 2)   ; (* 2 2)
+            (+ 10)  ; (+ 10 (* 2 2))
+            (/ 2)   ; (/ 2 (+ 10 (* 2 2)))
+            (* 6))  ; (* 6 (/ 2 (+ 10 (* 2 2))))
+;=> 6/7
