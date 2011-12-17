@@ -80,26 +80,41 @@
 (global-auto-revert-mode t)
 (setq vc-follow-symlinks t)
 
-;; package.el
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(package-initialize)
+(when window-system
+  (load "server")
+  (unless (server-running-p) (server-start)))
 
 (require 'c-w3m)
 (require 'c-ibus)
-
-(when window-system
-  (require 'color-theme)
-  (color-theme-classic)
-  (load "server")
-  (unless (server-running-p) (server-start)))
 
 ;; recentf
 (recentf-mode t)
 (setq recentf-max-saved-items 30)
 (setq recentf-auto-cleanup 300)
 (setq recentf-save-file "~/.emacs.d/recentf-list")
+
+;; package.el
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar my-packages '(color-theme-tangotango paredit
+                      slime
+                      slime-repl
+                      clojure-mode
+                      clojurescript-mode
+                      js2-mode))
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+(require 'color-theme-tangotango)
+(color-theme-tangotango)
 
 ;; slime
 ;(load (expand-file-name "~/quicklisp/slime-helper.el"))
