@@ -38,14 +38,9 @@
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
-(setq tab-stop-list '(4 8 12 16))
+(setq tab-stop-list '(4 8 12 16 20 24 28))
 (setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
 (setq sentence-end-double-space nil)
-
-(set-foreground-color "grey")
-(set-background-color "black")
-(set-cursor-color "gold1")
-(set-mouse-color "gold1")
 
 (set-scroll-bar-mode nil)
 ;;(customize-set-variable 'scroll-bar-mode 'right)
@@ -85,13 +80,18 @@
 (global-auto-revert-mode t)
 (setq vc-follow-symlinks t)
 
+;; package.el
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+
 (require 'c-w3m)
 (require 'c-ibus)
 
 (when window-system
   (require 'color-theme)
   (color-theme-classic)
-;;(require 'calendar-setting)
   (load "server")
   (unless (server-running-p) (server-start)))
 
@@ -102,7 +102,7 @@
 (setq recentf-save-file "~/.emacs.d/recentf-list")
 
 ;; slime
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;(load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/ccl")
 (setq common-lisp-hyperspec-root "http://127.0.0.1/docs/HyperSpec-7-0/HyperSpec/")
 ;;(if window-system (slime))
@@ -125,6 +125,7 @@
 (setq slime-repl-history-remove-duplicates t)
 (setq slime-repl-history-trim-whitespaces t)
 (setq slime-net-coding-system 'utf-8-unix)
+(require 'c-slime-autodoc)
 
 ;; python-mode
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
@@ -146,11 +147,6 @@
 ;; emacs -batch -f batch-byte-compile *.el
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-;; clojure-mode
-(add-to-list 'load-path "~/opt/clojure/clojure-mode")
-(require 'clojure-mode)
-(require 'c-slime-autodoc)              ; slime-autodoc
 
 ;; paredit
 (autoload 'paredit-mode "paredit"
