@@ -18,8 +18,6 @@
 (setq inhibit-startup-message t)
 (setq gnus-inhibit-startup-message t)
 
-;;(setq make-backup-files nil)
-;;(setq-default make-backup-files nil)
 (setq backup-directory-alist '(("." . "~/backups")))
 (setq version-control t)
 (setq kept-old-versions 2)
@@ -41,9 +39,7 @@
 (setq tab-stop-list '(4 8 12 16 20 24 28))
 (setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
 (setq sentence-end-double-space nil)
-
 (set-scroll-bar-mode nil)
-;;(customize-set-variable 'scroll-bar-mode 'right)
 
 (when window-system
   (if (eq system-type 'darwin)
@@ -102,7 +98,8 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(color-theme-tangotango paredit
+(defvar my-packages '(color-theme-tangotango
+                      paredit
                       slime
                       slime-repl
                       clojure-mode
@@ -120,7 +117,6 @@
 ;(load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/ccl")
 (setq common-lisp-hyperspec-root "http://127.0.0.1/docs/HyperSpec-7-0/HyperSpec/")
-;;(if window-system (slime))
 (eval-after-load 'slime '(setq slime-protocol-version 'ignore))
 
 (defun lisp-indent-or-complete (&optional arg)
@@ -147,7 +143,6 @@
 (setq interpreter-mode-alist(cons '("python" . python-mode)
                              interpreter-mode-alist))
 (autoload 'python-mode "python-mode" "Python editing mode." t)
-;;(setq py-python-command "python")
 ;;copy pycomplete.py Pymacs into PYTHONPATH
 (setq py-python-command "/usr/local/bin/pypy")
 (setq-default py-indent-offset 4)
