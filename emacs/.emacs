@@ -83,13 +83,13 @@
 (require 'c-w3m)
 (require 'c-ibus)
 
-;; recentf
+;;; recentf
 (recentf-mode t)
 (setq recentf-max-saved-items 30)
 (setq recentf-auto-cleanup 300)
 (setq recentf-save-file "~/.emacs.d/recentf-list")
 
-;; package.el
+;;; package.el
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -104,7 +104,8 @@
                       slime-repl
                       clojure-mode
                       clojurescript-mode
-                      js2-mode))
+                      js2-mode
+                      markdown-mode))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -113,7 +114,7 @@
 (require 'color-theme-tangotango)
 (color-theme-tangotango)
 
-;; slime
+;;; slime
 ;(load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/ccl")
 (setq common-lisp-hyperspec-root "http://127.0.0.1/docs/HyperSpec-7-0/HyperSpec/")
@@ -138,7 +139,7 @@
 (setq slime-net-coding-system 'utf-8-unix)
 (require 'c-slime-autodoc)
 
-;; python-mode
+;;; python-mode
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
 (setq interpreter-mode-alist(cons '("python" . python-mode)
                              interpreter-mode-alist))
@@ -153,12 +154,12 @@
 (autoload 'pymacs-call "pymacs")
 (require 'pycomplete)
 
-;; js2-mode
+;;; js-mode
 ;; emacs -batch -f batch-byte-compile *.el
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-;; paredit
+;;; paredit
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
 (dolist (mode '(scheme emacs-lisp lisp clojure clojurescript))
@@ -173,7 +174,16 @@
 (add-hook 'clojure-mode-hook 'esk-pretty-fn)
 (add-hook 'clojurescript-mode-hook 'esk-pretty-fn)
 
-;; misc functions
+;;; markdown-mode
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(setq auto-mode-alist
+      (append
+       '(("\\.md$"  . markdown-mode)
+         ("\\.markdown$"  . markdown-mode))
+       auto-mode-alist))
+
+;;; misc functions
 (defun copy-lines (&optional arg)
   (interactive "P")
   (save-excursion
