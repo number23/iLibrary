@@ -1,5 +1,5 @@
-(use '(clojure pprint repl))
-(use '(clojure.java shell browse javadoc jdbc))
+(use '[clojure pprint repl])
+(use '[clojure.java shell browse javadoc jdbc])
 (load-file (str (System/getenv "HOME") "/.clojure.clj"))
 
 (def completions (mapcat (comp keys ns-publics) (all-ns)))
