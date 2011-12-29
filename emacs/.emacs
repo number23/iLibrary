@@ -183,6 +183,10 @@
          ("\\.markdown$"  . markdown-mode))
        auto-mode-alist))
 
+;;; EasyPG
+(require 'epa-file)
+(epa-file-enable)
+
 ;;; misc functions
 (defun copy-lines (&optional arg)
   (interactive "P")
