@@ -46,12 +46,13 @@
       (progn
         (setq epg-gpg-program "/usr/local/bin/gpg")
         (setq ns-pop-up-frames nil)
-        (set-frame-font "Monaco:style=Roman:size=16")))
+        ;;(set-frame-font "Monaco:style=Roman:size=16")
+        (set-frame-font "YaHei Consolas Hybrid:size=16")))
 
   (if (eq system-type 'gnu/linux)
       (progn
         (tool-bar-mode nil)
-        ;;  (set-default-font "YaHei Consolas Hybrid-12")
+        ;;(set-default-font "YaHei Consolas Hybrid-12")
         (set-default-font "Consolas-12:bold"))))
 
 (setq default-major-mode 'text-mode)
