@@ -176,6 +176,13 @@
 (add-hook 'clojure-mode-hook 'esk-pretty-fn)
 (add-hook 'clojurescript-mode-hook 'esk-pretty-fn)
 
+;;; M-x inferior-lisp
+(add-hook 'clojure-mode-hook
+          (lambda ()
+            (setq safe-local-variable-values
+                  '((inferior-lisp-program . "lein repl")
+                    (inferior-lisp-program . "smvn clojure:repl")))))
+
 ;;; markdown-mode
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
