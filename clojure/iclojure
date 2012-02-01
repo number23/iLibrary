@@ -1,0 +1,28 @@
+#!/bin/sh
+
+CLOJURE_EXT=~/.clojure
+ICLOJURE_JAR=${CLOJURE_EXT}/iclojure.jar
+ICLOJURE_DOWNLOAD_URL="http://clk.tc/iclojure-latest.jar"
+
+if ! test -f $ICLOJURE_JAR; then
+    echo "Downloading latest IClojure jar from $ICLOJURE_DOWNLOAD_URL"
+    curl -L $ICLOJURE_DOWNLOAD_URL > $ICLOJURE_JAR
+fi
+
+LIBS=$(ls -1 $CLOJURE_EXT/* 2> /dev/null)
+export CLASSPATH=$CLASSPATH:"$(echo "$LIBS" | tr \\n :)"
+
+if [ -n "$JAVA_HOME" ]; then
+    JAVA="$JAVA_HOME/bin/java"
+else
+    JAVA=$(which java)
+fi
+
+if [ -z "$JAVA" ]; then
+    echo "Cannot locate java. Either set JAVA_HOME or add java to PATH"
+    exit 1
+elif ! test -x $JAVA; then
+    echo "Cannot locate java. Either set JAVA_HOME or add java to PATH"
+fi
+
+$JAVA -client com.offbytwo.iclojure.Main
