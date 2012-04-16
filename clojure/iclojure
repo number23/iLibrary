@@ -9,8 +9,13 @@ if ! test -f $ICLOJURE_JAR; then
     curl -L $ICLOJURE_DOWNLOAD_URL > $ICLOJURE_JAR
 fi
 
-LIBS=$(ls -1 $CLOJURE_EXT/* 2> /dev/null)
-export CLASSPATH=$CLASSPATH:"$(echo "$LIBS" | tr \\n :)"
+for jar in $(ls $CLOJURE_EXT/*.jar)
+do
+    if [ "$jar" = "$CLOJURE_EXT/clojure.jar" ]; then
+        continue
+    fi
+    export CLASSPATH="$CLASSPATH:$jar"
+done
 
 if [ -n "$JAVA_HOME" ]; then
     JAVA="$JAVA_HOME/bin/java"
