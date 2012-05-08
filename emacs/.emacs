@@ -164,9 +164,10 @@
 ;;; paredit
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
-(dolist (mode '(scheme emacs-lisp lisp clojure clojurescript))
+(dolist (mode '(clojure clojurescript js2 python scheme emacs-lisp lisp))
   (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
-            (lambda () (paredit-mode t))))
+            (lambda () (paredit-mode t)))
+  (add-hook (intern (concat (symbol-name mode) "-mode-hook")) 'hs-minor-mode))
 
 (defun esk-pretty-fn ()
   (font-lock-add-keywords nil `(("(\\(fn\\>\\)"
