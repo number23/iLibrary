@@ -20,5 +20,5 @@ if [ $# -eq 0 ]; then
         --history-filename=$HOME/.clj_history --histsize=1000000 \
         $JAVA $OPTS $MAIN -i $HOME/.clojure.clj --repl
 else
-    exec $JAVA $OPTS $MAIN $1 "$@"
+    exec $JAVA $OPTS $MAIN "$@"
 fi
