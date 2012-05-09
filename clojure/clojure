@@ -4,16 +4,14 @@ export CLOJURE_EXT=$HOME/.clojure
 export CLOJURE_OPTS="-Xmx1g -server"
 
 LIBS=$(ls -1 $CLOJURE_EXT/* 2> /dev/null)
-export CLASSPATH=$CLASSPATH:"$(echo "$LIBS" | tr \\n :)"
+export CLASSPATH=.:$CLASSPATH:"$(echo "$LIBS" | tr \\n :)"
 
 JAVA=${CLOJURE_JAVA:-java}
 OPTS=${CLOJURE_OPTS:-}
 MAIN=${CLOJURE_MAIN:-clojure.main}
 
-#exec $JAVA $OPTS $MAIN "$@"
-#exec $JAVA $OPTS jline.ConsoleRunner $MAIN "$@"
-
 breakchars="(){}[],^%$#@\"\";:''|\\"
+
 if [ $# -eq 0 ]; then
     exec rlwrap --remember -c -b $breakchars \
         -f $HOME/.clj_completions \
