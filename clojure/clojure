@@ -4,7 +4,7 @@ export CLOJURE_EXT=$HOME/.clojure
 export CLOJURE_OPTS="-Xmx1g -server"
 
 LIBS=$(ls -1 $CLOJURE_EXT/* 2> /dev/null)
-export CLASSPATH=.:$CLASSPATH:"$(echo "$LIBS" | tr \\n :)"
+export CLASSPATH=.:$CLOJURE_EXT:$CLASSPATH:"$(echo "$LIBS" | tr \\n :)"
 
 JAVA=${CLOJURE_JAVA:-java}
 OPTS=${CLOJURE_OPTS:-}
