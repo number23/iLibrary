@@ -118,9 +118,8 @@
 
 ;;; slime
 ;(load (expand-file-name "~/quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "/usr/local/bin/ccl")
-(setq common-lisp-hyperspec-root "http://127.0.0.1/docs/HyperSpec-7-0/HyperSpec/")
-(eval-after-load 'slime '(setq slime-protocol-version 'ignore))
+;(setq inferior-lisp-program "/usr/local/bin/ccl")
+;(setq common-lisp-hyperspec-root "http://127.0.0.1/docs/HyperSpec-7-0/HyperSpec/")
 
 (defun lisp-indent-or-complete (&optional arg)
   (interactive "P")
@@ -135,6 +134,7 @@
 (add-hook 'lisp-mode-hook '(lambda ()
   (local-set-key (kbd "RET") 'newline-and-indent)))
 
+(eval-after-load 'slime '(setq slime-protocol-version 'ignore))
 (setq slime-autodoc-use-multiline-p t)
 (setq slime-repl-history-remove-duplicates t)
 (setq slime-repl-history-trim-whitespaces t)
@@ -217,6 +217,18 @@
         (lisp-interaction-mode)))
     (switch-to-buffer scratch-buffer)))
 
+(defun goto-match-parenthesis (arg)
+  "Go to the matching  if on (){}[], similar to vi style of % "
+  (interactive "P")
+  ;; first, check for "outside of bracket" positions expected by forward-sexp, etc.
+  (cond ((looking-at "[\[\(\{]") (forward-sexp))
+        ((looking-back "[\]\)\}]" 1) (backward-sexp))
+        ;; now, try to succeed from inside of a bracket
+        ((looking-at "[\]\)\}]") (forward-char) (backward-sexp))
+        ((looking-back "[\[\(\{]" 1) (backward-char) (forward-sexp))
+        (t nil)))
+
 (global-set-key (kbd "C-c C-w") 'copy-lines)
 (global-set-key (kbd "C-c C-j") 'join-line)
 (global-set-key "\C-cbs" 'switch-buffer-scratch)
+(global-set-key (kbd "C-%") 'goto-match-parenthesis)
