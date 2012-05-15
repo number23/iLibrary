@@ -107,7 +107,8 @@
                       clojure-mode
                       clojurescript-mode
                       js2-mode
-                      markdown-mode))
+                      markdown-mode
+                      auto-complete))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -196,6 +197,11 @@
 ;;; EasyPG
 (require 'epa-file)
 (epa-file-enable)
+
+;;; auto-complete: M-n, M-p, C-g
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict/")
+(ac-config-default)
 
 ;;; misc functions
 (defun copy-lines (&optional arg)
