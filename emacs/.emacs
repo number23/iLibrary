@@ -151,11 +151,14 @@
 (setq py-python-command "/usr/local/bin/pypy")
 (setq-default py-indent-offset 4)
 (setq pymacs-python-command py-python-command)
-(autoload 'pymacs-load "pymacs" nil t)
-(autoload 'pymacs-eval "pymacs" nil t)
-(autoload 'pymacs-apply "pymacs")
-(autoload 'pymacs-call "pymacs")
-(require 'pycomplete)
+(eval-after-load "python-mode"
+  '(progn
+     (autoload 'pymacs-apply "pymacs")
+     (autoload 'pymacs-call "pymacs")
+     (autoload 'pymacs-load "pymacs" nil t)
+     (autoload 'pymacs-exec "pymacs" nil t)
+     (autoload 'pymacs-eval "pymacs" nil t)
+     (require 'pycomplete)))
 
 ;;; js-mode
 ;; emacs -batch -f batch-byte-compile *.el
