@@ -26,9 +26,9 @@ fn () {
     cd $DST/clojure
     ant
     cp clojure.jar $TARGET
-    cd $DST/clojure-contrib
-    mvn package -DskipTests
-    cp modules/standalone/target/standalone*.jar $TARGET/clojure-contrib.jar
+    #cd $DST/clojure-contrib
+    #mvn package -DskipTests
+    #cp modules/standalone/target/standalone*.jar $TARGET/clojure-contrib.jar
 
     cd $CUR
     clojure completions.clj
