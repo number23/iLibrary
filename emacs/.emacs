@@ -102,12 +102,14 @@
 
 (defvar my-packages '(color-theme-tangotango
                       paredit
+                      highlight-parentheses
                       slime
                       slime-repl
                       clojure-mode
                       clojurescript-mode
                       js2-mode
                       markdown-mode
+                      ac-slime
                       auto-complete))
 
 (dolist (p my-packages)
@@ -168,10 +170,16 @@
 ;;; paredit
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
+(require 'highlight-parentheses)
 (dolist (mode '(clojure clojurescript js2 python scheme emacs-lisp lisp))
   (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
-            (lambda () (paredit-mode t)))
-  (add-hook (intern (concat (symbol-name mode) "-mode-hook")) 'hs-minor-mode))
+            (lambda ()
+              (paredit-mode t)
+              (highlight-parentheses-mode t)
+              (hs-minor-mode t))))
+(setq hl-paren-colors
+      '("red1" "orange1" "yellow1" "green1" "cyan1"
+        "slateblue1" "magenta1" "purple"))
 
 (defun esk-pretty-fn ()
   (font-lock-add-keywords nil `(("(\\(fn\\>\\)"
@@ -205,6 +213,9 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict/")
 (ac-config-default)
+(require 'ac-slime)
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 
 ;;; misc functions
 (defun copy-lines (&optional arg)
