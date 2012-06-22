@@ -217,6 +217,9 @@
 (add-hook 'slime-mode-hook 'set-up-slime-ac)
 (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 
+;;; colored REPL
+(add-hook 'slime-repl-mode-hook 'clojure-mode-font-lock-setup)
+
 ;;; misc functions
 (defun copy-lines (&optional arg)
   (interactive "P")
