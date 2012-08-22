@@ -107,6 +107,7 @@
                       slime-repl
                       clojure-mode
                       clojurescript-mode
+                      nrepl
                       js2-mode
                       markdown-mode
                       ac-slime
