@@ -1,4 +1,4 @@
-(use '[de.no.number23.commons-lib io util])
+(use '[org.clojars.number23.commons-lib io util])
 
 (defmacro kw
   "查询当前所有ns中含特定字符串的函数，如: (kw -index)

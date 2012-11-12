@@ -8,3 +8,38 @@ C-M-p  Move backward over a parenthetical group
 
 C-w     cut
 M-w     copy
+
+
+File/buffer/window commands
+C-x C-f     Find file
+C-x C-s     Save buffer
+C-x s       Save file (like save-as)
+C-x b       Switch buffer
+C-x k       Kill buffer
+C-x 1       Delete other windows
+C-x 0       Delete current window
+C-x 2       Split window horizontally
+C-x 3       Split window vertically
+
+Movement commands
+C-a         Beginning of line
+C-e         End of line
+C-n         Next line (down)
+C-p         Previous line (up)
+C-b         Back (left)
+C-f         Forward (right)
+M-f         Forward a word
+M-b         Back a word
+C-v         Forward a page
+M-v         Back a page
+
+Edit commands
+C-d         Kill character
+M-d         Kill word
+M-delete    Kill word backwards (I have this mapped to C-w)
+
+Misc commands
+C-s         Regex search forwards
+C-r         Regex search backwards
+M-%         Query replace
+
