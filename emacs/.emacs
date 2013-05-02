@@ -39,7 +39,7 @@
 (setq tab-stop-list '(4 8 12 16 20 24 28))
 (setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
 (setq sentence-end-double-space nil)
-(set-scroll-bar-mode nil)
+(scroll-bar-mode 0)
 
 (when window-system
   (if (eq system-type 'darwin)
@@ -51,7 +51,7 @@
 
   (if (eq system-type 'gnu/linux)
       (progn
-        (tool-bar-mode nil)
+        (tool-bar-mode 0)
         ;;(set-default-font "YaHei Consolas Hybrid-12")
         (set-default-font "Consolas-12:bold"))))
 
@@ -71,7 +71,7 @@
 (setq mouse-yank-at-point t)
 (setq scroll-margin 3 scroll-conservatively 10000)
 (setq enable-recursive-minibuffers t)
-(setq kill-ring-max 200)
+(setq kill-ring-max 500)
 (setq-default require-final-newline t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-to-list 'load-path' "~/.emacs.d/site-lisp")
