@@ -102,6 +102,7 @@
 
 (defvar my-packages '(color-theme-solarized
                       color-theme-monokai
+                      geiser
                       paredit
                       highlight-parentheses
                       slime
@@ -225,6 +226,10 @@
             (require 'clojure-mode)
             (let (font-lock-mode)
               (clojure-mode-font-lock-setup))))
+
+;;; geiser
+(setq geiser-active-implementations '(racket))
+(setq geiser-repl-history-filename "~/.emacs.d/geiser-history")
 
 ;;; misc functions
 (defun copy-lines (&optional arg)
