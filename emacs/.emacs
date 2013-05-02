@@ -82,7 +82,7 @@
   (load "server")
   (unless (server-running-p) (server-start)))
 
-(require 'c-w3m)
+;(require 'c-w3m)
 (require 'c-ibus)
 
 ;;; recentf
@@ -100,7 +100,8 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(color-theme-tangotango
+(defvar my-packages '(color-theme-solarized
+                      color-theme-monokai
                       paredit
                       highlight-parentheses
                       slime
@@ -108,7 +109,7 @@
                       clojure-mode
                       clojurescript-mode
                       nrepl
-                      js2-mode
+                      ;js2-mode
                       markdown-mode
                       ac-slime
                       auto-complete))
@@ -117,8 +118,8 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-(require 'color-theme-tangotango)
-(color-theme-tangotango)
+(require 'color-theme-solarized)
+(color-theme-monokai)
 
 ;;; slime
 ;(load (expand-file-name "~/quicklisp/slime-helper.el"))
@@ -165,8 +166,8 @@
 
 ;;; js-mode
 ;; emacs -batch -f batch-byte-compile *.el
-(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;;(autoload 'js2-mode "js2" nil t)
+;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;;; paredit
 (autoload 'paredit-mode "paredit"
