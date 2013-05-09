@@ -1,0 +1,408 @@
+[    19.763] 
+X.Org X Server 1.12.4
+Release Date: 2012-08-27
+[    19.763] X Protocol Version 11, Revision 0
+[    19.763] Build Operating System: Linux 3.2.0-4-amd64 x86_64 Debian
+[    19.763] Current Operating System: Linux debian 3.2.0-4-amd64 #1 SMP Debian 3.2.41-2 x86_64
+[    19.763] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-3.2.0-4-amd64 root=UUID=41ce7ad9-a285-4bec-a078-166be0d56e37 ro quiet i915.modeset=1 i915.semaphores=1 i915.i915_enable_rc6=7 i915.i915_enable_fbc=1
+[    19.763] Build Date: 17 April 2013  10:22:47AM
+[    19.763] xorg-server 2:1.12.4-6 (Julien Cristau <jcristau@debian.org>) 
+[    19.763] Current version of pixman: 0.26.0
+[    19.763] 	Before reporting problems, check http://wiki.x.org
+	to make sure that you have the latest version.
+[    19.763] Markers: (--) probed, (**) from config file, (==) default setting,
+	(++) from command line, (!!) notice, (II) informational,
+	(WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+[    19.763] (==) Log file: "/var/log/Xorg.0.log", Time: Thu May  9 10:31:54 2013
+[    19.861] (==) Using system config directory "/usr/share/X11/xorg.conf.d"
+[    20.293] (==) No Layout section.  Using the first Screen section.
+[    20.293] (==) No screen section available. Using defaults.
+[    20.293] (**) |-->Screen "Default Screen Section" (0)
+[    20.293] (**) |   |-->Monitor "<default monitor>"
+[    20.293] (==) No device specified for screen "Default Screen Section".
+	Using the first device section listed.
+[    20.293] (**) |   |-->Device "Intel Graphics"
+[    20.293] (==) No monitor specified for screen "Default Screen Section".
+	Using a default monitor configuration.
+[    20.293] (==) Automatically adding devices
+[    20.293] (==) Automatically enabling devices
+[    20.581] (WW) The directory "/usr/share/fonts/X11/cyrillic" does not exist.
+[    20.581] 	Entry deleted from font path.
+[    21.034] (==) FontPath set to:
+	/usr/share/fonts/X11/misc,
+	/usr/share/fonts/X11/100dpi/:unscaled,
+	/usr/share/fonts/X11/75dpi/:unscaled,
+	/usr/share/fonts/X11/Type1,
+	/usr/share/fonts/X11/100dpi,
+	/usr/share/fonts/X11/75dpi,
+	/var/lib/defoma/x-ttcidfont-conf.d/dirs/TrueType,
+	built-ins
+[    21.034] (==) ModulePath set to "/usr/lib/xorg/modules"
+[    21.035] (II) The server relies on udev to provide the list of input devices.
+	If no devices become available, reconfigure udev or disable AutoAddDevices.
+[    21.035] (II) Loader magic: 0x7f82310d9ae0
+[    21.035] (II) Module ABI versions:
+[    21.035] 	X.Org ANSI C Emulation: 0.4
+[    21.035] 	X.Org Video Driver: 12.1
+[    21.035] 	X.Org XInput driver : 16.0
+[    21.035] 	X.Org Server Extension : 6.0
+[    21.035] (--) PCI:*(0:0:2:0) 8086:2e92:17aa:306e rev 3, Mem @ 0xfe800000/4194304, 0xd0000000/268435456, I/O @ 0x0000ec00/8
+[    21.036] (II) Open ACPI successful (/var/run/acpid.socket)
+[    21.036] (II) LoadModule: "extmod"
+[    21.537] (II) Loading /usr/lib/xorg/modules/extensions/libextmod.so
+[    21.707] (II) Module extmod: vendor="X.Org Foundation"
+[    21.707] 	compiled for 1.12.4, module version = 1.0.0
+[    21.707] 	Module class: X.Org Server Extension
+[    21.707] 	ABI class: X.Org Server Extension, version 6.0
+[    21.707] (II) Loading extension SELinux
+[    21.707] (II) Loading extension MIT-SCREEN-SAVER
+[    21.707] (II) Loading extension XFree86-VidModeExtension
+[    21.707] (II) Loading extension XFree86-DGA
+[    21.707] (II) Loading extension DPMS
+[    21.707] (II) Loading extension XVideo
+[    21.715] (II) Loading extension XVideo-MotionCompensation
+[    21.715] (II) Loading extension X-Resource
+[    21.716] (II) LoadModule: "dbe"
+[    21.716] (II) Loading /usr/lib/xorg/modules/extensions/libdbe.so
+[    21.809] (II) Module dbe: vendor="X.Org Foundation"
+[    21.809] 	compiled for 1.12.4, module version = 1.0.0
+[    21.809] 	Module class: X.Org Server Extension
+[    21.809] 	ABI class: X.Org Server Extension, version 6.0
+[    21.809] (II) Loading extension DOUBLE-BUFFER
+[    21.809] (II) LoadModule: "glx"
+[    21.809] (II) Loading /usr/lib/xorg/modules/extensions/libglx.so
+[    22.013] (II) Module glx: vendor="X.Org Foundation"
+[    22.013] 	compiled for 1.12.4, module version = 1.0.0
+[    22.013] 	ABI class: X.Org Server Extension, version 6.0
+[    22.022] (==) AIGLX enabled
+[    22.023] (II) Loading extension GLX
+[    22.023] (II) LoadModule: "record"
+[    22.023] (II) Loading /usr/lib/xorg/modules/extensions/librecord.so
+[    22.108] (II) Module record: vendor="X.Org Foundation"
+[    22.108] 	compiled for 1.12.4, module version = 1.13.0
+[    22.108] 	Module class: X.Org Server Extension
+[    22.108] 	ABI class: X.Org Server Extension, version 6.0
+[    22.108] (II) Loading extension RECORD
+[    22.108] (II) LoadModule: "dri"
+[    22.108] (II) Loading /usr/lib/xorg/modules/extensions/libdri.so
+[    22.364] (II) Module dri: vendor="X.Org Foundation"
+[    22.364] 	compiled for 1.12.4, module version = 1.0.0
+[    22.364] 	ABI class: X.Org Server Extension, version 6.0
+[    22.364] (II) Loading extension XFree86-DRI
+[    22.364] (II) LoadModule: "dri2"
+[    22.364] (II) Loading /usr/lib/xorg/modules/extensions/libdri2.so
+[    22.384] (II) Module dri2: vendor="X.Org Foundation"
+[    22.384] 	compiled for 1.12.4, module version = 1.2.0
+[    22.384] 	ABI class: X.Org Server Extension, version 6.0
+[    22.384] (II) Loading extension DRI2
+[    22.384] (II) LoadModule: "intel"
+[    22.384] (II) Loading /usr/lib/xorg/modules/drivers/intel_drv.so
+[    22.399] (II) Module intel: vendor="X.Org Foundation"
+[    22.399] 	compiled for 1.12.3.902, module version = 2.19.0
+[    22.399] 	Module class: X.Org Video Driver
+[    22.399] 	ABI class: X.Org Video Driver, version 12.1
+[    22.399] (II) intel: Driver for Intel Integrated Graphics Chipsets: i810,
+	i810-dc100, i810e, i815, i830M, 845G, 854, 852GM/855GM, 865G, 915G,
+	E7221 (i915), 915GM, 945G, 945GM, 945GME, Pineview GM, Pineview G,
+	965G, G35, 965Q, 946GZ, 965GM, 965GME/GLE, G33, Q35, Q33, GM45,
+	4 Series, G45/G43, Q45/Q43, G41, B43, B43, Clarkdale, Arrandale,
+	Sandybridge Desktop (GT1), Sandybridge Desktop (GT2),
+	Sandybridge Desktop (GT2+), Sandybridge Mobile (GT1),
+	Sandybridge Mobile (GT2), Sandybridge Mobile (GT2+),
+	Sandybridge Server, Ivybridge Mobile (GT1), Ivybridge Mobile (GT2),
+	Ivybridge Desktop (GT1), Ivybridge Desktop (GT2), Ivybridge Server,
+	Ivybridge Server (GT2)
+[    22.400] (++) using VT number 7
+
+[    22.551] (II) intel(0): SNA compiled: xserver-xorg-video-intel 2:2.19.0-6 (Julien Cristau <jcristau@debian.org>)
+[    22.552] drmOpenDevice: node name is /dev/dri/card0
+[    22.552] drmOpenDevice: open result is 9, (OK)
+[    22.552] drmOpenByBusid: Searching for BusID pci:0000:00:02.0
+[    22.552] drmOpenDevice: node name is /dev/dri/card0
+[    22.552] drmOpenDevice: open result is 9, (OK)
+[    22.552] drmOpenByBusid: drmOpenMinor returns 9
+[    22.552] drmOpenByBusid: drmGetBusid reports pci:0000:00:02.0
+[    22.552] (II) intel(0): Creating default Display subsection in Screen section
+	"Default Screen Section" for depth/fbbpp 24/32
+[    22.552] (==) intel(0): Depth 24, (--) framebuffer bpp 32
+[    22.552] (==) intel(0): RGB weight 888
+[    22.552] (==) intel(0): Default visual is TrueColor
+[    22.552] (**) intel(0): Option "AccelMethod" "sna"
+[    22.552] (II) intel(0): Integrated Graphics Chipset: Intel(R) B43
+[    22.552] (--) intel(0): Chipset: "B43"
+[    22.596] (--) intel(0): Disabling use of vmap
+[    22.596] (**) intel(0): Framebuffer tiled
+[    22.596] (**) intel(0): Pixmaps tiled
+[    22.596] (**) intel(0): 3D buffers tiled
+[    22.596] (**) intel(0): Throttling enabled
+[    22.596] (**) intel(0): Delayed flush enabled
+[    22.663] (II) intel(0): Output VGA1 has no monitor section
+[    22.727] (II) intel(0): EDID for output VGA1
+[    22.727] (II) intel(0): Manufacturer: DEL  Model: d023  Serial#: 811152461
+[    22.727] (II) intel(0): Year: 2010  Week: 14
+[    22.727] (II) intel(0): EDID Version: 1.3
+[    22.727] (II) intel(0): Analog Display Input,  Input Voltage Level: 0.700/0.300 V
+[    22.727] (II) intel(0): Sync:  Separate  Composite  SyncOnGreen
+[    22.727] (II) intel(0): Max Image Size [cm]: horiz.: 41  vert.: 23
+[    22.727] (II) intel(0): Gamma: 2.20
+[    22.727] (II) intel(0): DPMS capabilities: StandBy Suspend Off; RGB/Color Display
+[    22.727] (II) intel(0): Default color space is primary color space
+[    22.727] (II) intel(0): First detailed timing is preferred mode
+[    22.727] (II) intel(0): redX: 0.640 redY: 0.330   greenX: 0.300 greenY: 0.600
+[    22.727] (II) intel(0): blueX: 0.150 blueY: 0.060   whiteX: 0.313 whiteY: 0.329
+[    22.727] (II) intel(0): Supported established timings:
+[    22.727] (II) intel(0): 720x400@70Hz
+[    22.727] (II) intel(0): 640x480@60Hz
+[    22.727] (II) intel(0): 640x480@75Hz
+[    22.727] (II) intel(0): 800x600@60Hz
+[    22.727] (II) intel(0): 800x600@75Hz
+[    22.727] (II) intel(0): 1024x768@60Hz
+[    22.727] (II) intel(0): 1024x768@75Hz
+[    22.727] (II) intel(0): Manufacturer's mask: 0
+[    22.727] (II) intel(0): Supported detailed timing:
+[    22.727] (II) intel(0): clock: 85.5 MHz   Image Size:  410 x 230 mm
+[    22.727] (II) intel(0): h_active: 1366  h_sync: 1436  h_sync_end 1579 h_blank_end 1792 h_border: 0
+[    22.727] (II) intel(0): v_active: 768  v_sync: 771  v_sync_end 774 v_blanking: 798 v_border: 0
+[    22.727] (II) intel(0): Serial No: CD1MT0480Y4M
+[    22.727] (II) intel(0): Monitor name: DELL E1910H
+[    22.727] (II) intel(0): Ranges: V min: 56 V max: 75 Hz, H min: 30 H max: 83 kHz, PixClock max 95 MHz
+[    22.727] (II) intel(0): EDID (in hex):
+[    22.727] (II) intel(0): 	00ffffffffffff0010ac23d04d345930
+[    22.727] (II) intel(0): 	0e1401030e291778eeee95a3544c9926
+[    22.727] (II) intel(0): 	0f5054a54a0001010101010101010101
+[    22.727] (II) intel(0): 	010101010101662156aa51001e30468f
+[    22.727] (II) intel(0): 	33009ae61000001e000000ff00434431
+[    22.727] (II) intel(0): 	4d543034383059344d0a000000fc0044
+[    22.727] (II) intel(0): 	454c4c204531393130480a20000000fd
+[    22.727] (II) intel(0): 	00384b1e5309000a20202020202000d5
+[    22.727] (II) intel(0): EDID vendor "DEL", prod id 53283
+[    22.727] (II) intel(0): Using EDID range info for horizontal sync
+[    22.727] (II) intel(0): Using EDID range info for vertical refresh
+[    22.727] (II) intel(0): Printing DDC gathered Modelines:
+[    22.727] (II) intel(0): Modeline "1366x768"x0.0   85.50  1366 1436 1579 1792  768 771 774 798 +hsync +vsync (47.7 kHz eP)
+[    22.727] (II) intel(0): Modeline "800x600"x0.0   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    22.727] (II) intel(0): Modeline "640x480"x0.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[    22.727] (II) intel(0): Modeline "640x480"x0.0   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    22.727] (II) intel(0): Modeline "720x400"x0.0   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[    22.727] (II) intel(0): Modeline "1024x768"x0.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[    22.727] (II) intel(0): Modeline "1024x768"x0.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    22.727] (II) intel(0): Modeline "800x600"x0.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[    22.727] (II) intel(0): Printing probed modes for output VGA1
+[    22.727] (II) intel(0): Modeline "1366x768"x59.8   85.50  1366 1436 1579 1792  768 771 774 798 +hsync +vsync (47.7 kHz eP)
+[    22.727] (II) intel(0): Modeline "1024x768"x75.1   78.80  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.1 kHz e)
+[    22.727] (II) intel(0): Modeline "1024x768"x60.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    22.727] (II) intel(0): Modeline "800x600"x75.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[    22.727] (II) intel(0): Modeline "800x600"x60.3   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    22.727] (II) intel(0): Modeline "640x480"x75.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[    22.728] (II) intel(0): Modeline "640x480"x60.0   25.20  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    22.728] (II) intel(0): Modeline "720x400"x70.1   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[    22.728] (II) intel(0): Output VGA1 connected
+[    22.728] (II) intel(0): Using exact sizes for initial modes
+[    22.728] (II) intel(0): Output VGA1 using initial mode 1366x768
+[    22.728] (II) intel(0): Using default gamma of (1.0, 1.0, 1.0) unless otherwise stated.
+[    22.728] (**) intel(0): Display dimensions: (410, 230) mm
+[    22.728] (**) intel(0): DPI set to (84, 84)
+[    22.728] (II) Loading sub module "fb"
+[    22.728] (II) LoadModule: "fb"
+[    22.728] (II) Loading /usr/lib/xorg/modules/libfb.so
+[    22.730] (II) Module fb: vendor="X.Org Foundation"
+[    22.730] 	compiled for 1.12.4, module version = 1.0.0
+[    22.730] 	ABI class: X.Org ANSI C Emulation, version 0.4
+[    22.730] (II) Loading sub module "dri2"
+[    22.730] (II) LoadModule: "dri2"
+[    22.730] (II) Loading /usr/lib/xorg/modules/extensions/libdri2.so
+[    22.730] (II) Module dri2: vendor="X.Org Foundation"
+[    22.730] 	compiled for 1.12.4, module version = 1.2.0
+[    22.730] 	ABI class: X.Org Server Extension, version 6.0
+[    22.759] (==) Depth 24 pixmap format is 32 bpp
+[    22.811] (II) intel(0): SNA initialized with Broadwater backend
+[    22.811] (==) intel(0): Backing store disabled
+[    22.811] (==) intel(0): Silken mouse enabled
+[    22.811] (II) intel(0): Initializing HW Cursor
+[    22.811] (II) intel(0): RandR 1.2 enabled, ignore the following RandR disabled message.
+[    22.812] (==) intel(0): DPMS enabled
+[    22.813] (II) intel(0): Overlay video not supported on this hardware
+[    22.813] (II) intel(0): [XvMC] xvmc_vld driver initialized.
+[    22.813] (II) intel(0): [DRI2] Setup complete
+[    22.813] (II) intel(0): [DRI2]   DRI driver: i965
+[    22.813] (II) intel(0): direct rendering: DRI2 Enabled
+[    22.813] (==) intel(0): hotplug detection: "enabled"
+[    22.813] (--) RandR disabled
+[    22.813] (II) Initializing built-in extension Generic Event Extension
+[    22.813] (II) Initializing built-in extension SHAPE
+[    22.813] (II) Initializing built-in extension MIT-SHM
+[    22.813] (II) Initializing built-in extension XInputExtension
+[    22.813] (II) Initializing built-in extension XTEST
+[    22.813] (II) Initializing built-in extension BIG-REQUESTS
+[    22.813] (II) Initializing built-in extension SYNC
+[    22.813] (II) Initializing built-in extension XKEYBOARD
+[    22.813] (II) Initializing built-in extension XC-MISC
+[    22.813] (II) Initializing built-in extension SECURITY
+[    22.813] (II) Initializing built-in extension XINERAMA
+[    22.813] (II) Initializing built-in extension XFIXES
+[    22.813] (II) Initializing built-in extension RENDER
+[    22.813] (II) Initializing built-in extension RANDR
+[    22.813] (II) Initializing built-in extension COMPOSITE
+[    22.813] (II) Initializing built-in extension DAMAGE
+[    22.813] (II) SELinux: Disabled on system
+[    23.089] (EE) AIGLX error: Calling driver entry point failed
+[    23.089] (EE) AIGLX: reverting to software rendering
+[    23.089] (II) AIGLX: Screen 0 is not DRI capable
+[    23.469] (II) AIGLX: Loaded and initialized swrast
+[    23.469] (II) GLX: Initialized DRISWRAST GL provider for screen 0
+[    23.504] (II) intel(0): Setting screen physical size to 361 x 203
+[    24.266] (II) config/udev: Adding input device Power Button (/dev/input/event4)
+[    24.266] (**) Power Button: Applying InputClass "evdev keyboard catchall"
+[    24.266] (II) LoadModule: "evdev"
+[    24.283] (II) Loading /usr/lib/xorg/modules/input/evdev_drv.so
+[    24.284] (II) Module evdev: vendor="X.Org Foundation"
+[    24.284] 	compiled for 1.12.1, module version = 2.7.0
+[    24.284] 	Module class: X.Org XInput Driver
+[    24.284] 	ABI class: X.Org XInput driver, version 16.0
+[    24.284] (II) Using input driver 'evdev' for 'Power Button'
+[    24.284] (**) Power Button: always reports core events
+[    24.284] (**) evdev: Power Button: Device: "/dev/input/event4"
+[    24.284] (--) evdev: Power Button: Vendor 0 Product 0x1
+[    24.284] (--) evdev: Power Button: Found keys
+[    24.284] (II) evdev: Power Button: Configuring as keyboard
+[    24.284] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXPWRBN:00/input/input4/event4"
+[    24.284] (II) XINPUT: Adding extended input device "Power Button" (type: KEYBOARD, id 6)
+[    24.284] (**) Option "xkb_rules" "evdev"
+[    24.284] (**) Option "xkb_model" "pc105"
+[    24.284] (**) Option "xkb_layout" "us"
+[    24.284] (II) config/udev: Adding input device Power Button (/dev/input/event3)
+[    24.284] (**) Power Button: Applying InputClass "evdev keyboard catchall"
+[    24.284] (II) Using input driver 'evdev' for 'Power Button'
+[    24.284] (**) Power Button: always reports core events
+[    24.284] (**) evdev: Power Button: Device: "/dev/input/event3"
+[    24.284] (--) evdev: Power Button: Vendor 0 Product 0x1
+[    24.285] (--) evdev: Power Button: Found keys
+[    24.285] (II) evdev: Power Button: Configuring as keyboard
+[    24.285] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input3/event3"
+[    24.285] (II) XINPUT: Adding extended input device "Power Button" (type: KEYBOARD, id 7)
+[    24.285] (**) Option "xkb_rules" "evdev"
+[    24.285] (**) Option "xkb_model" "pc105"
+[    24.285] (**) Option "xkb_layout" "us"
+[    24.285] (II) config/udev: Adding input device HDA Intel Headphone (/dev/input/event6)
+[    24.285] (II) No input driver specified, ignoring this device.
+[    24.285] (II) This device may have been added with another device file.
+[    24.285] (II) config/udev: Adding input device Logitech Lenovo USB Optical Mouse (/dev/input/event0)
+[    24.285] (**) Logitech Lenovo USB Optical Mouse: Applying InputClass "evdev pointer catchall"
+[    24.285] (II) Using input driver 'evdev' for 'Logitech Lenovo USB Optical Mouse'
+[    24.285] (**) Logitech Lenovo USB Optical Mouse: always reports core events
+[    24.285] (**) evdev: Logitech Lenovo USB Optical Mouse: Device: "/dev/input/event0"
+[    24.285] (--) evdev: Logitech Lenovo USB Optical Mouse: Vendor 0x17ef Product 0x6019
+[    24.285] (--) evdev: Logitech Lenovo USB Optical Mouse: Found 3 mouse buttons
+[    24.285] (--) evdev: Logitech Lenovo USB Optical Mouse: Found scroll wheel(s)
+[    24.285] (--) evdev: Logitech Lenovo USB Optical Mouse: Found relative axes
+[    24.285] (--) evdev: Logitech Lenovo USB Optical Mouse: Found x and y relative axes
+[    24.285] (II) evdev: Logitech Lenovo USB Optical Mouse: Configuring as mouse
+[    24.285] (II) evdev: Logitech Lenovo USB Optical Mouse: Adding scrollwheel support
+[    24.285] (**) evdev: Logitech Lenovo USB Optical Mouse: YAxisMapping: buttons 4 and 5
+[    24.285] (**) evdev: Logitech Lenovo USB Optical Mouse: EmulateWheelButton: 4, EmulateWheelInertia: 10, EmulateWheelTimeout: 200
+[    24.285] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.0/usb5/5-1/5-1:1.0/input/input0/event0"
+[    24.285] (II) XINPUT: Adding extended input device "Logitech Lenovo USB Optical Mouse" (type: MOUSE, id 8)
+[    24.285] (II) evdev: Logitech Lenovo USB Optical Mouse: initialized for relative axes.
+[    24.286] (**) Logitech Lenovo USB Optical Mouse: (accel) keeping acceleration scheme 1
+[    24.286] (**) Logitech Lenovo USB Optical Mouse: (accel) acceleration profile 0
+[    24.286] (**) Logitech Lenovo USB Optical Mouse: (accel) acceleration factor: 2.000
+[    24.286] (**) Logitech Lenovo USB Optical Mouse: (accel) acceleration threshold: 4
+[    24.286] (II) config/udev: Adding input device Logitech Lenovo USB Optical Mouse (/dev/input/mouse0)
+[    24.286] (II) No input driver specified, ignoring this device.
+[    24.286] (II) This device may have been added with another device file.
+[    24.286] (II) config/udev: Adding input device Lenovo Lenovo Low Profile USB Keyboard (/dev/input/event1)
+[    24.286] (**) Lenovo Lenovo Low Profile USB Keyboard: Applying InputClass "evdev keyboard catchall"
+[    24.286] (II) Using input driver 'evdev' for 'Lenovo Lenovo Low Profile USB Keyboard'
+[    24.286] (**) Lenovo Lenovo Low Profile USB Keyboard: always reports core events
+[    24.286] (**) evdev: Lenovo Lenovo Low Profile USB Keyboard: Device: "/dev/input/event1"
+[    24.286] (--) evdev: Lenovo Lenovo Low Profile USB Keyboard: Vendor 0x17ef Product 0x6018
+[    24.286] (--) evdev: Lenovo Lenovo Low Profile USB Keyboard: Found keys
+[    24.286] (II) evdev: Lenovo Lenovo Low Profile USB Keyboard: Configuring as keyboard
+[    24.286] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.0/usb5/5-2/5-2:1.0/input/input1/event1"
+[    24.286] (II) XINPUT: Adding extended input device "Lenovo Lenovo Low Profile USB Keyboard" (type: KEYBOARD, id 9)
+[    24.286] (**) Option "xkb_rules" "evdev"
+[    24.286] (**) Option "xkb_model" "pc105"
+[    24.286] (**) Option "xkb_layout" "us"
+[    24.287] (II) config/udev: Adding input device Lenovo Lenovo Low Profile USB Keyboard (/dev/input/event2)
+[    24.287] (**) Lenovo Lenovo Low Profile USB Keyboard: Applying InputClass "evdev keyboard catchall"
+[    24.287] (II) Using input driver 'evdev' for 'Lenovo Lenovo Low Profile USB Keyboard'
+[    24.287] (**) Lenovo Lenovo Low Profile USB Keyboard: always reports core events
+[    24.287] (**) evdev: Lenovo Lenovo Low Profile USB Keyboard: Device: "/dev/input/event2"
+[    24.287] (--) evdev: Lenovo Lenovo Low Profile USB Keyboard: Vendor 0x17ef Product 0x6018
+[    24.287] (--) evdev: Lenovo Lenovo Low Profile USB Keyboard: Found 1 mouse buttons
+[    24.287] (--) evdev: Lenovo Lenovo Low Profile USB Keyboard: Found keys
+[    24.287] (II) evdev: Lenovo Lenovo Low Profile USB Keyboard: Configuring as mouse
+[    24.287] (II) evdev: Lenovo Lenovo Low Profile USB Keyboard: Configuring as keyboard
+[    24.287] (**) evdev: Lenovo Lenovo Low Profile USB Keyboard: YAxisMapping: buttons 4 and 5
+[    24.287] (**) evdev: Lenovo Lenovo Low Profile USB Keyboard: EmulateWheelButton: 4, EmulateWheelInertia: 10, EmulateWheelTimeout: 200
+[    24.287] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.0/usb5/5-2/5-2:1.1/input/input2/event2"
+[    24.287] (II) XINPUT: Adding extended input device "Lenovo Lenovo Low Profile USB Keyboard" (type: KEYBOARD, id 10)
+[    24.287] (**) Option "xkb_rules" "evdev"
+[    24.287] (**) Option "xkb_model" "pc105"
+[    24.287] (**) Option "xkb_layout" "us"
+[    24.287] (II) config/udev: Adding input device Lenovo Lenovo Low Profile USB Keyboard (/dev/input/js0)
+[    24.287] (II) No input driver specified, ignoring this device.
+[    24.287] (II) This device may have been added with another device file.
+[    24.287] (II) config/udev: Adding input device PC Speaker (/dev/input/event5)
+[    24.287] (II) No input driver specified, ignoring this device.
+[    24.287] (II) This device may have been added with another device file.
+[    24.367] (II) intel(0): EDID vendor "DEL", prod id 53283
+[    24.367] (II) intel(0): Using hsync ranges from config file
+[    24.367] (II) intel(0): Using vrefresh ranges from config file
+[    24.367] (II) intel(0): Printing DDC gathered Modelines:
+[    24.367] (II) intel(0): Modeline "1366x768"x0.0   85.50  1366 1436 1579 1792  768 771 774 798 +hsync +vsync (47.7 kHz eP)
+[    24.367] (II) intel(0): Modeline "800x600"x0.0   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    24.367] (II) intel(0): Modeline "640x480"x0.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[    24.367] (II) intel(0): Modeline "640x480"x0.0   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    24.367] (II) intel(0): Modeline "720x400"x0.0   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[    24.367] (II) intel(0): Modeline "1024x768"x0.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[    24.367] (II) intel(0): Modeline "1024x768"x0.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    24.367] (II) intel(0): Modeline "800x600"x0.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[    28.327] (II) intel(0): EDID vendor "DEL", prod id 53283
+[    28.327] (II) intel(0): Using hsync ranges from config file
+[    28.327] (II) intel(0): Using vrefresh ranges from config file
+[    28.327] (II) intel(0): Printing DDC gathered Modelines:
+[    28.328] (II) intel(0): Modeline "1366x768"x0.0   85.50  1366 1436 1579 1792  768 771 774 798 +hsync +vsync (47.7 kHz eP)
+[    28.328] (II) intel(0): Modeline "800x600"x0.0   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    28.328] (II) intel(0): Modeline "640x480"x0.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[    28.328] (II) intel(0): Modeline "640x480"x0.0   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    28.328] (II) intel(0): Modeline "720x400"x0.0   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[    28.328] (II) intel(0): Modeline "1024x768"x0.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[    28.328] (II) intel(0): Modeline "1024x768"x0.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    28.328] (II) intel(0): Modeline "800x600"x0.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[    50.329] (II) intel(0): EDID vendor "DEL", prod id 53283
+[    50.409] (II) intel(0): Using hsync ranges from config file
+[    50.409] (II) intel(0): Using vrefresh ranges from config file
+[    50.409] (II) intel(0): Printing DDC gathered Modelines:
+[    50.409] (II) intel(0): Modeline "1366x768"x0.0   85.50  1366 1436 1579 1792  768 771 774 798 +hsync +vsync (47.7 kHz eP)
+[    50.409] (II) intel(0): Modeline "800x600"x0.0   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    50.409] (II) intel(0): Modeline "640x480"x0.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[    50.409] (II) intel(0): Modeline "640x480"x0.0   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    50.409] (II) intel(0): Modeline "720x400"x0.0   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[    50.409] (II) intel(0): Modeline "1024x768"x0.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[    50.409] (II) intel(0): Modeline "1024x768"x0.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    50.409] (II) intel(0): Modeline "800x600"x0.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[    54.795] (II) intel(0): EDID vendor "DEL", prod id 53283
+[    54.795] (II) intel(0): Using hsync ranges from config file
+[    54.795] (II) intel(0): Using vrefresh ranges from config file
+[    54.795] (II) intel(0): Printing DDC gathered Modelines:
+[    54.795] (II) intel(0): Modeline "1366x768"x0.0   85.50  1366 1436 1579 1792  768 771 774 798 +hsync +vsync (47.7 kHz eP)
+[    54.795] (II) intel(0): Modeline "800x600"x0.0   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    54.795] (II) intel(0): Modeline "640x480"x0.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[    54.795] (II) intel(0): Modeline "640x480"x0.0   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    54.795] (II) intel(0): Modeline "720x400"x0.0   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[    54.795] (II) intel(0): Modeline "1024x768"x0.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[    54.795] (II) intel(0): Modeline "1024x768"x0.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    54.795] (II) intel(0): Modeline "800x600"x0.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[    59.823] (II) intel(0): EDID vendor "DEL", prod id 53283
+[    59.823] (II) intel(0): Using hsync ranges from config file
+[    59.823] (II) intel(0): Using vrefresh ranges from config file
+[    59.823] (II) intel(0): Printing DDC gathered Modelines:
+[    59.823] (II) intel(0): Modeline "1366x768"x0.0   85.50  1366 1436 1579 1792  768 771 774 798 +hsync +vsync (47.7 kHz eP)
+[    59.823] (II) intel(0): Modeline "800x600"x0.0   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[    59.823] (II) intel(0): Modeline "640x480"x0.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[    59.823] (II) intel(0): Modeline "640x480"x0.0   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[    59.823] (II) intel(0): Modeline "720x400"x0.0   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[    59.823] (II) intel(0): Modeline "1024x768"x0.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[    59.823] (II) intel(0): Modeline "1024x768"x0.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[    59.823] (II) intel(0): Modeline "800x600"x0.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)

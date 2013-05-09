@@ -1,0 +1,26 @@
+Shell:~ >: cat /etc/modprobe.d/i915-kms.conf 
+options i915 modeset=1
+Shell:~ >: grep GRUB_CMDLINE_LINUX_DEFAULT /etc/default/grub 
+#GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet i915.modeset=1 i915.semaphores=1 i915.i915_enable_rc6=7 i915.i915_enable_fbc=1"
+Shell:~ >: sudo update-grub 
+Shell:~ >: cat /usr/share/X11/xorg.conf.d/20-intel.conf 
+Section "Device"
+   Identifier  "Intel Graphics"
+   Driver      "intel"
+   Option      "AccelMethod"  "sna"
+EndSection
+Shell:~ >: lsmod | grep i915
+i915                  378417  2 
+video                  17683  1 i915
+drm_kms_helper         31370  1 i915
+drm                   183952  3 drm_kms_helper,i915
+i2c_algo_bit           12841  1 i915
+i2c_core               23876  5 i2c_algo_bit,i2c_i801,drm,drm_kms_helper,i915
+button                 12937  1 i915
+Shell:~ >: sudo cat /sys/module/i915/parameters/modeset
+1
+
+
+https://wiki.archlinux.org/index.php/Intel_Graphics
+https://wiki.archlinux.org/index.php/Intel_Graphics_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
