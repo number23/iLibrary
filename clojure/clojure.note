@@ -54,3 +54,13 @@ user=> (->> 2       ; 2
             (/ 2)   ; (/ 2 (+ 10 (* 2 2)))
             (* 6))  ; (* 6 (/ 2 (+ 10 (* 2 2))))
 ;=> 6/7
+
+;; from <<Clojure Programming>>, P257.
+(defn preserve-metadata
+  "Ensures that the body containing `expr` will carry the metadata
+from `&form`."
+  [&form expr]
+  (let [res (with-meta (gensym "res") (meta &form))]
+    `(let [~res ~expr]
+       ~res)))
+
