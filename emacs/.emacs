@@ -266,3 +266,23 @@
 (global-set-key (kbd "C-c C-j") 'join-line)
 (global-set-key "\C-cbs" 'switch-buffer-scratch)
 (global-set-key (kbd "C-%") 'goto-match-parenthesis)
+
+(defun toggle-selective-display (column)
+  (interactive "P")
+  (set-selective-display
+   (or column
+       (unless selective-display
+         (1+ (current-column))))))
+
+(defun toggle-hiding (column)
+  (interactive "P")
+  (if hs-minor-mode
+      (if (condition-case nil
+              (hs-toggle-hiding)
+            (error t))
+          (hs-show-all))
+    (toggle-selective-display column)))
+
+(load-library "hideshow")
+(global-set-key [f9] 'toggle-hiding)
+(global-set-key [f10] 'toggle-selective-display)
