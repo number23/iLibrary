@@ -9,6 +9,16 @@ C-M-p  Move backward over a parenthetical group
 C-w     cut
 M-w     copy
 
+M-xoccur". Given a regex, it will create a new buffer with each match in the current buffer.
+
+(global-set-key (kbd "C-%") 'goto-match-parenthesis)
+
+Invoke HideShow mode with M-x hs-minor-mode.
+C-c @ C-M-s show all
+C-c @ C-M-h hide all
+C-c @ C-s show block
+C-c @ C-h hide block
+C-c @ C-c toggle hide/show
 
 File/buffer/window commands
 C-x C-f     Find file
