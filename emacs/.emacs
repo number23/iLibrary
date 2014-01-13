@@ -105,11 +105,12 @@
                       geiser
                       paredit
                       highlight-parentheses
-                      slime
-                      slime-repl
+                      ;slime
+                      ;slime-repl
                       clojure-mode
                       clojurescript-mode
                       nrepl
+                      cider
                       ;js2-mode
                       markdown-mode
                       ac-slime
@@ -140,30 +141,30 @@
 (add-hook 'lisp-mode-hook '(lambda ()
   (local-set-key (kbd "RET") 'newline-and-indent)))
 
-(eval-after-load 'slime '(setq slime-protocol-version 'ignore))
-(setq slime-autodoc-use-multiline-p t)
-(setq slime-repl-history-remove-duplicates t)
-(setq slime-repl-history-trim-whitespaces t)
-(setq slime-net-coding-system 'utf-8-unix)
-(require 'c-slime-autodoc)
+;(eval-after-load 'slime '(setq slime-protocol-version 'ignore))
+;(setq slime-autodoc-use-multiline-p t)
+;(setq slime-repl-history-remove-duplicates t)
+;(setq slime-repl-history-trim-whitespaces t)
+;(setq slime-net-coding-system 'utf-8-unix)
+;(require 'c-slime-autodoc)
 
 ;;; python-mode
-(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
-(setq interpreter-mode-alist(cons '("python" . python-mode)
-                             interpreter-mode-alist))
-(autoload 'python-mode "python-mode" "Python editing mode." t)
-;;copy pycomplete.py Pymacs into PYTHONPATH
-(setq py-python-command "/usr/local/bin/pypy")
-(setq-default py-indent-offset 4)
-(setq pymacs-python-command py-python-command)
-(eval-after-load "python-mode"
-  '(progn
-     (autoload 'pymacs-apply "pymacs")
-     (autoload 'pymacs-call "pymacs")
-     (autoload 'pymacs-load "pymacs" nil t)
-     (autoload 'pymacs-exec "pymacs" nil t)
-     (autoload 'pymacs-eval "pymacs" nil t)
-     (require 'pycomplete)))
+;(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+;(setq interpreter-mode-alist(cons '("python" . python-mode)
+;                             interpreter-mode-alist))
+;(autoload 'python-mode "python-mode" "Python editing mode." t)
+;;;copy pycomplete.py Pymacs into PYTHONPATH
+;(setq py-python-command "/usr/local/bin/pypy")
+;(setq-default py-indent-offset 4)
+;(setq pymacs-python-command py-python-command)
+;(eval-after-load "python-mode"
+;  '(progn
+;     (autoload 'pymacs-apply "pymacs")
+;     (autoload 'pymacs-call "pymacs")
+;     (autoload 'pymacs-load "pymacs" nil t)
+;     (autoload 'pymacs-exec "pymacs" nil t)
+;     (autoload 'pymacs-eval "pymacs" nil t)
+;     (require 'pycomplete)))
 
 ;;; js-mode
 ;; emacs -batch -f batch-byte-compile *.el
@@ -193,11 +194,11 @@
 (add-hook 'clojurescript-mode-hook 'esk-pretty-fn)
 
 ;;; M-x inferior-lisp
-(add-hook 'clojure-mode-hook
-          (lambda ()
-            (setq safe-local-variable-values
-                  '((inferior-lisp-program . "lein repl")
-                    (inferior-lisp-program . "smvn clojure:repl")))))
+;(add-hook 'clojure-mode-hook
+;          (lambda ()
+;            (setq safe-local-variable-values
+;                  '((inferior-lisp-program . "lein repl")
+;                    (inferior-lisp-program . "smvn clojure:repl")))))
 
 ;;; markdown-mode
 (autoload 'markdown-mode "markdown-mode"
@@ -221,11 +222,11 @@
 (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 
 ;;; colored REPL
-(add-hook 'slime-repl-mode-hook
-          (defun clojure-mode-slime-font-lock ()
-            (require 'clojure-mode)
-            (let (font-lock-mode)
-              (clojure-mode-font-lock-setup))))
+;(add-hook 'slime-repl-mode-hook
+;          (defun clojure-mode-slime-font-lock ()
+;            (require 'clojure-mode)
+;            (let (font-lock-mode)
+;              (clojure-mode-font-lock-setup))))
 
 ;;; geiser
 (setq geiser-active-implementations '(racket))
