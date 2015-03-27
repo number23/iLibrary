@@ -3,7 +3,9 @@ C-M-b     Move backward over a balanced expression
 C-M-k     Kill balanced expression forward
 C-M-SPC   put the mark at the end of the sexp.  # M-w ==> C-y
 
-C-M-n  Move forward over a parenthetical group 
+C-M-@  == C-@ == C-M-SPC on Mac OS
+
+C-M-n  Move forward over a parenthetical group
 C-M-p  Move backward over a parenthetical group
 
 C-w     cut
