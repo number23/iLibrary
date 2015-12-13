@@ -88,6 +88,7 @@
 ;;; recentf
 (recentf-mode t)
 (setq recentf-max-saved-items 30)
+(setq recentf-max-menu-items 25)
 (setq recentf-auto-cleanup 300)
 (setq recentf-save-file "~/.emacs.d/recentf-list")
 
@@ -95,6 +96,11 @@
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
 (package-initialize)
 
 (when (not package-archive-contents)
