@@ -44,6 +44,7 @@
 (when window-system
   (if (eq system-type 'darwin)
       (progn
+        (tool-bar-mode 0)
         (setq epg-gpg-program "/usr/local/bin/gpg")
         (setq ns-pop-up-frames nil)
         ;;(set-frame-font "Monaco:style=Roman:size=16")
