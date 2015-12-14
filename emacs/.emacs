@@ -95,9 +95,9 @@
 
 ;;; package.el
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")))
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -105,6 +105,8 @@
 
 (defvar my-packages '(color-theme-solarized
                       color-theme-monokai
+                      elm-mode
+                      haskell-mode
                       geiser
                       paredit
                       highlight-parentheses
