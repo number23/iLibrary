@@ -1,0 +1,30 @@
+backup:
+
+/etc/
+/var/lib/dpkg
+/var/lib/apt/extended_states
+/var/lib/aptitude/pkgstates
+
+dpkg --get-selections "*" > installed.txt
+
+Stop all running services, such as apache, nginx, mysql, or postgresql.
+service nginx stop
+
+vi /etc/apt/sources.list
+Change all instances of wheezy to jessie.
+
+su root
+apt-get update
+apt-get upgrade
+
+Click Yes to restart services.
+
+apt-get dist-upgrade
+
+Before rebooting your machine, It is advisable to purge old packages.
+dpkg -l | awk '/^rc/ { print $2 }'
+
+apt-get purge $(dpkg -l | awk '/^rc/ { print $2 }')
+apt-get autoremove
+
+reboot
