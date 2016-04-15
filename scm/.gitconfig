@@ -1,11 +1,13 @@
 [user]
     name = number23
     email = number23.cn@gmail.com
+	signingkey = FEC35B97
 
 [alias]
     list = config --list
     co = checkout
     ci = commit -a
+    cis = commit -S -a
     st = status
     ss = status -s
     br = branch
@@ -23,6 +25,7 @@
     remote-details = remote show origin
 
 # log
+    log = log --show-signature
     lp = log -p
     lg = log --oneline --decorate --graph
     lss = log --stat --summary
