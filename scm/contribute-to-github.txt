@@ -1,0 +1,19 @@
+1. fork to your own github
+2. git clone into locale
+3. git remote add upstream
+4. checkout a dev branch from master
+5. commit on your dev branch
+6. push your dev branch to github
+7. on githbu dev branch pull request to upstream
+
+7-1. update from upstream:
+$ git stash
+$ git checkout master
+$ git pull --rebase upstream master
+
+8. after pull request merged:
+$ git push origin --delete dev
+$ git branch -D dev
+
+$ git pull --rebase upstream master
+$ git push
