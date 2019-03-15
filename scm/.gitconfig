@@ -28,6 +28,7 @@
     log = log --show-signature
     lp = log -p
     lg = log --oneline --decorate --graph
+	lgp = log --graph --all --pretty=format:'%C(bold)%h%Creset -%C(auto)%d%Creset %s %C(green dim)(%cr)%Creset %C(ul)<%an>'
     lss = log --stat --summary
     last = log -1 HEAD
 

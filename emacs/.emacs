@@ -11,6 +11,7 @@
 ;(set-file-name-coding-system 'utf-8)
 ;(setq ansi-color-for-comint-mode t)
 
+
 (global-set-key (kbd "C-SPC") 'nil)
 (setq default-directory "~/")
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -318,3 +319,24 @@
          (swap-parens-at-points (save-excursion (forward-sexp -1) (point)) (point)))
         ((message "Not at a paren"))))
 (global-set-key [f12] 'swap-parens)
+
+(require 'scala-mode)
+(add-to-list 'auto-mode-alist '("\\.sc$" . scala-mode))
+
+;; go get github.com/rogpeppe/godef
+;; go install github.com/rogpeppe/godef
+;; go get github.com/nsf/gocode
+;; go install github.com/nsf/gocode
+(autoload 'go-mode "go-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
+(add-hook 'before-save-hook #'gofmt-before-save)
+
+(set-background-color "black")
+(set-foreground-color "black")
+
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line
