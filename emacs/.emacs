@@ -1,17 +1,3 @@
-;(set-language-environment 'Chinese-GB)
-;(set-keyboard-coding-system 'utf-8)
-;(set-clipboard-coding-system 'utf-8)
-;(set-terminal-coding-system 'utf-8)
-;(set-buffer-file-coding-system 'utf-8)
-;(set-default-coding-systems 'utf-8)
-;(set-selection-coding-system 'utf-8)
-;(modify-coding-system-alist 'process "*" 'utf-8)
-;(setq default-process-coding-system '(utf-8 . utf-8))
-;(setq-default pathname-coding-system 'utf-8)
-;(set-file-name-coding-system 'utf-8)
-;(setq ansi-color-for-comint-mode t)
-
-
 (global-set-key (kbd "C-SPC") 'nil)
 (setq default-directory "~/")
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -85,7 +71,7 @@
   (unless (server-running-p) (server-start)))
 
 ;(require 'c-w3m)
-(require 'c-ibus)
+;(require 'c-ibus)
 
 ;;; recentf
 (recentf-mode t)
@@ -100,82 +86,34 @@
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
-
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(color-theme-solarized
-                      color-theme-monokai
-                      elm-mode
-                      haskell-mode
-                      geiser
+(defvar my-packages '(;color-theme-solarized
+                      ;color-theme-monokai
                       paredit
                       highlight-parentheses
-                      ;slime
-                      ;slime-repl
                       clojure-mode
                       clojurescript-mode
-                      nrepl
-                      cider
+                      ;cider
                       ;js2-mode
                       markdown-mode
-                      ac-slime
                       auto-complete))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
-(require 'color-theme-solarized)
-(color-theme-monokai)
+;;; color-theme
+;(require 'color-theme-solarized)
+;(color-theme-monokai)
 
-;;; slime
-;(load (expand-file-name "~/quicklisp/slime-helper.el"))
-;(setq inferior-lisp-program "/usr/local/bin/ccl")
-;(setq common-lisp-hyperspec-root "http://127.0.0.1/docs/HyperSpec-7-0/HyperSpec/")
+(add-to-list 'custom-theme-load-path
+             (file-name-as-directory "~/github.com/replace-colorthemes"))
 
-(defun lisp-indent-or-complete (&optional arg)
-  (interactive "P")
-  (if (or (looking-back "^\\s-*") (bolp))
-      (call-interactively 'lisp-indent-line)
-      (call-interactively 'slime-indent-and-complete-symbol)))
-
-(eval-after-load "lisp-mode"
-  '(progn
-     (define-key lisp-mode-map (kbd "TAB") 'lisp-indent-or-complete)))
-
-(add-hook 'lisp-mode-hook '(lambda ()
-  (local-set-key (kbd "RET") 'newline-and-indent)))
-
-;(eval-after-load 'slime '(setq slime-protocol-version 'ignore))
-;(setq slime-autodoc-use-multiline-p t)
-;(setq slime-repl-history-remove-duplicates t)
-;(setq slime-repl-history-trim-whitespaces t)
-;(setq slime-net-coding-system 'utf-8-unix)
-;(require 'c-slime-autodoc)
-
-;;; python-mode
-;(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
-;(setq interpreter-mode-alist(cons '("python" . python-mode)
-;                             interpreter-mode-alist))
-;(autoload 'python-mode "python-mode" "Python editing mode." t)
-;;;copy pycomplete.py Pymacs into PYTHONPATH
-;(setq py-python-command "/usr/local/bin/pypy")
-;(setq-default py-indent-offset 4)
-;(setq pymacs-python-command py-python-command)
-;(eval-after-load "python-mode"
-;  '(progn
-;     (autoload 'pymacs-apply "pymacs")
-;     (autoload 'pymacs-call "pymacs")
-;     (autoload 'pymacs-load "pymacs" nil t)
-;     (autoload 'pymacs-exec "pymacs" nil t)
-;     (autoload 'pymacs-eval "pymacs" nil t)
-;     (require 'pycomplete)))
-
-;;; js-mode
-;; emacs -batch -f batch-byte-compile *.el
-;;(autoload 'js2-mode "js2" nil t)
-;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;; load your favorite theme
+(load-theme 'gnome2 t t)
+(enable-theme 'gnome2)
 
 ;;; paredit
 (autoload 'paredit-mode "paredit"
@@ -199,13 +137,6 @@
 (add-hook 'clojure-mode-hook 'esk-pretty-fn)
 (add-hook 'clojurescript-mode-hook 'esk-pretty-fn)
 
-;;; M-x inferior-lisp
-;(add-hook 'clojure-mode-hook
-;          (lambda ()
-;            (setq safe-local-variable-values
-;                  '((inferior-lisp-program . "lein repl")
-;                    (inferior-lisp-program . "smvn clojure:repl")))))
-
 ;;; markdown-mode
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
@@ -221,31 +152,32 @@
 
 ;;; auto-complete: M-n, M-p, C-g
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict/")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20170125.245/dict/")
 (ac-config-default)
-(require 'ac-slime)
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-
-;;; colored REPL
-;(add-hook 'slime-repl-mode-hook
-;          (defun clojure-mode-slime-font-lock ()
-;            (require 'clojure-mode)
-;            (let (font-lock-mode)
-;              (clojure-mode-font-lock-setup))))
-
-;;; geiser
-(setq geiser-active-implementations '(racket))
-(setq geiser-repl-history-filename "~/.emacs.d/geiser-history")
 
 ;;; misc functions
-(defun copy-lines (&optional arg)
+(defun toggle-selective-display (column)
   (interactive "P")
-  (save-excursion
-    (beginning-of-line)
-    (set-mark (point))
-    (next-line arg)
-    (kill-ring-save (mark) (point))))
+  (set-selective-display
+   (or column
+       (unless selective-display
+         (1+ (current-column))))))
+
+(defun toggle-hiding (column)
+  (interactive "P")
+  (if hs-minor-mode
+      (if (condition-case nil
+              (hs-toggle-hiding)
+            (error t))
+          (hs-show-all))
+    (toggle-selective-display column)))
+
+(load-library "hideshow")
+(global-set-key [C-tab] 'next-buffer)
+(global-set-key [C-S-iso-lefttab] 'previous-buffer)
+(global-set-key (kbd "C-c C-j") 'join-line)
+(global-set-key [f9] 'toggle-hiding)
+(global-set-key [f10] 'toggle-selective-display)
 
 (defun switch-buffer-scratch ()
   "Switch to the scratch buffer. If the buffer doesn't exist"
@@ -269,30 +201,8 @@
         ((looking-back "[\[\(\{]" 1) (backward-char) (forward-sexp))
         (t nil)))
 
-(global-set-key (kbd "C-c C-w") 'copy-lines)
-(global-set-key (kbd "C-c C-j") 'join-line)
-(global-set-key "\C-cbs" 'switch-buffer-scratch)
+(global-set-key [f11] 'switch-buffer-scratch)
 (global-set-key (kbd "C-%") 'goto-match-parenthesis)
-
-(defun toggle-selective-display (column)
-  (interactive "P")
-  (set-selective-display
-   (or column
-       (unless selective-display
-         (1+ (current-column))))))
-
-(defun toggle-hiding (column)
-  (interactive "P")
-  (if hs-minor-mode
-      (if (condition-case nil
-              (hs-toggle-hiding)
-            (error t))
-          (hs-show-all))
-    (toggle-selective-display column)))
-
-(load-library "hideshow")
-(global-set-key [f9] 'toggle-hiding)
-(global-set-key [f10] 'toggle-selective-display)
 
 (defvar swap-paren-pairs '("()" "[]"))
 (defun swap-parens-at-points (b e)
@@ -320,23 +230,18 @@
         ((message "Not at a paren"))))
 (global-set-key [f12] 'swap-parens)
 
-(require 'scala-mode)
-(add-to-list 'auto-mode-alist '("\\.sc$" . scala-mode))
-
+;;; golang
 ;; go get github.com/rogpeppe/godef
 ;; go install github.com/rogpeppe/godef
 ;; go get github.com/nsf/gocode
 ;; go install github.com/nsf/gocode
+;; cp -rf godef /usr/local/bin
+;; cp -rf gocode /usr/local/bin
+;; vi /usr/local/bin/gofmt: go fmt
+
 (autoload 'go-mode "go-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 (ac-config-default)
 (add-hook 'before-save-hook #'gofmt-before-save)
-
-(set-background-color "black")
-(set-foreground-color "black")
-
-;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
-(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
-;; ## end of OPAM user-setup addition for emacs / base ## keep this line
