@@ -176,6 +176,7 @@
 (global-set-key [C-tab] 'next-buffer)
 (global-set-key [C-S-iso-lefttab] 'previous-buffer)
 (global-set-key (kbd "C-c C-j") 'join-line)
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key [f9] 'toggle-hiding)
 (global-set-key [f10] 'toggle-selective-display)
 
