@@ -211,6 +211,7 @@
 ;;; golang
 ;; go get golang.org/x/tools/gopls@latest
 
+;; M-. 和 M-, 定义跳转/跳回
 (use-package lsp-mode
   :ensure t
   :commands (lsp lsp-deferred)
