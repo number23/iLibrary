@@ -5,17 +5,6 @@
 (setq inhibit-startup-message t)
 (setq gnus-inhibit-startup-message t)
 
-(setq backup-directory-alist '(("." . "~/backups")))
-(setq version-control t)
-(setq kept-old-versions 2)
-(setq kept-new-versions 3)
-(setq delete-old-versions t)
-(setq backup-by-copying t)
-(setq auto-save-default nil)
-
-(setq user-full-name "N23")
-(setq user-mail-address "number23.cn@gmail.com")
-
 (display-time-mode t)
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
@@ -70,8 +59,11 @@
   (load "server")
   (unless (server-running-p) (server-start)))
 
-;(require 'c-w3m)
-;(require 'c-ibus)
+(add-to-list 'custom-theme-load-path
+             (file-name-as-directory "~/github.com/replace-colorthemes"))
+
+(load-theme 'gnome2 t t)
+(enable-theme 'gnome2)
 
 ;;; recentf
 (recentf-mode t)
@@ -80,23 +72,23 @@
 (setq recentf-auto-cleanup 300)
 (setq recentf-save-file "~/.emacs.d/recentf-list")
 
+;;; EasyPG
+(require 'epa-file)
+(epa-file-enable)
+
 ;;; package.el
-(require 'package)
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(;color-theme-solarized
-                      ;color-theme-monokai
+(defvar my-packages '(use-package
+                      lsp-mode
                       paredit
                       highlight-parentheses
                       clojure-mode
-                      clojurescript-mode
-                      ;cider
-                      ;js2-mode
                       markdown-mode
                       auto-complete))
 
@@ -104,22 +96,11 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;;; color-theme
-;(require 'color-theme-solarized)
-;(color-theme-monokai)
-
-(add-to-list 'custom-theme-load-path
-             (file-name-as-directory "~/github.com/replace-colorthemes"))
-
-;; load your favorite theme
-(load-theme 'gnome2 t t)
-(enable-theme 'gnome2)
-
 ;;; paredit
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
 (require 'highlight-parentheses)
-(dolist (mode '(clojure clojurescript js2 python scheme emacs-lisp lisp))
+(dolist (mode '(clojure clojurescript python scheme emacs-lisp lisp))
   (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
             (lambda ()
               (paredit-mode t)
@@ -146,13 +127,9 @@
          ("\\.markdown$"  . markdown-mode))
        auto-mode-alist))
 
-;;; EasyPG
-(require 'epa-file)
-(epa-file-enable)
-
 ;;; auto-complete: M-n, M-p, C-g
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20170125.245/dict/")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20201213.1255/dict/")
 (ac-config-default)
 
 ;;; misc functions
@@ -232,17 +209,36 @@
 (global-set-key [f12] 'swap-parens)
 
 ;;; golang
-;; go get github.com/rogpeppe/godef
-;; go install github.com/rogpeppe/godef
-;; go get github.com/nsf/gocode
-;; go install github.com/nsf/gocode
-;; cp -rf godef /usr/local/bin
-;; cp -rf gocode /usr/local/bin
-;; vi /usr/local/bin/gofmt: go fmt
+;; go get golang.org/x/tools/gopls@latest
 
-(autoload 'go-mode "go-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
-(require 'go-autocomplete)
-(require 'auto-complete-config)
-(ac-config-default)
-(add-hook 'before-save-hook #'gofmt-before-save)
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp lsp-deferred)
+  :hook (go-mode . lsp-deferred))
+
+;; Set up before-save hooks to format buffer and add/delete imports.
+;; Make sure you don't have other gofmt/goimports hooks enabled.
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+;; Optional - provides fancier overlays.
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
+
+;; Company mode is a standard completion package that works well with lsp-mode.
+(use-package company
+  :ensure t
+  :config
+  ;; Optionally enable completion-as-you-type behavior.
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 1))
+
+;; Optional - provides snippet support.
+(use-package yasnippet
+  :ensure t
+  :commands yas-minor-mode
+  :hook (go-mode . yas-minor-mode))
+
