@@ -54,6 +54,7 @@
 (add-to-list 'load-path' "~/.emacs.d/site-lisp")
 (global-auto-revert-mode t)
 (setq vc-follow-symlinks t)
+(setq make-backup-files nil)
 
 (when window-system
   (load "server")
@@ -242,4 +243,3 @@
   :ensure t
   :commands yas-minor-mode
   :hook (go-mode . yas-minor-mode))
-
