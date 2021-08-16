@@ -30,7 +30,7 @@
       (progn
         (tool-bar-mode 0)
         ;;(set-default-font "YaHei Consolas Hybrid-12")
-        (set-default-font "Consolas-12:bold"))))
+        (set-frame-font "Consolas-12:bold"))))
 
 (setq default-major-mode 'text-mode)
 (setq default-fill-column 80)
