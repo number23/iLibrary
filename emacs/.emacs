@@ -29,7 +29,7 @@
   (if (eq system-type 'gnu/linux)
       (progn
         (tool-bar-mode 0)
-        ;;(set-default-font "YaHei Consolas Hybrid-12")
+        ;;(set-frame-font "YaHei Consolas Hybrid-12")
         (set-frame-font "Consolas-12:bold"))))
 
 (setq default-major-mode 'text-mode)
@@ -90,8 +90,7 @@
                       paredit
                       highlight-parentheses
                       clojure-mode
-                      markdown-mode
-                      auto-complete))
+                      markdown-mode))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -127,11 +126,6 @@
        '(("\\.md$"  . markdown-mode)
          ("\\.markdown$"  . markdown-mode))
        auto-mode-alist))
-
-;;; auto-complete: M-n, M-p, C-g
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20201213.1255/dict/")
-(ac-config-default)
 
 ;;; misc functions
 (defun toggle-selective-display (column)
