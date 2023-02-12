@@ -40,7 +40,7 @@
 #    interactive = auto
 
 [core]
-    editor = vim
+    editor = vi
 #    autocrlf = true
 
 [merge]
