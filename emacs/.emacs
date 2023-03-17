@@ -20,11 +20,11 @@
 (when window-system
   (if (eq system-type 'darwin)
       (progn
-        (tool-bar-mode 0)
-        (setq epg-gpg-program "/usr/local/bin/gpg")
+        (tool-bar-mode -1)
+        (setq epg-gpg-program "/opt/homebrew/bin/gpg")
         (setq ns-pop-up-frames nil)
-        ;;(set-frame-font "Monaco:style=Roman:size=16")
-        (set-frame-font "YaHei Consolas Hybrid:size=16")))
+        (set-frame-font "Monaco:style=Roman:size=16")))
+        ;;(set-frame-font "YaHei Consolas Hybrid:size=16")))
 
   (if (eq system-type 'gnu/linux)
       (progn
