@@ -20,6 +20,8 @@
 (when window-system
   (if (eq system-type 'darwin)
       (progn
+        (setq mac-command-modifier 'meta)
+        (setq mac-option-modifier nil)
         (tool-bar-mode -1)
         (setq epg-gpg-program "/opt/homebrew/bin/gpg")
         (setq ns-pop-up-frames nil)
