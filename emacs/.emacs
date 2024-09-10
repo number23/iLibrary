@@ -92,6 +92,7 @@
                       paredit
                       highlight-parentheses
                       clojure-mode
+                      eglot
                       zig-mode
                       markdown-mode))
 
@@ -330,3 +331,9 @@
 ;; Zig
 (autoload 'zig-mode "zig-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.zig\\'" . zig-mode))
+(use-package eglot
+  :hook
+  (zig-mode . eglot-ensure)
+  :config
+  (setq eglot-autoshutdown t)
+  (add-to-list 'eglot-server-programs '(zig-mode . ("zls")))) ;; make sure zls is installed
