@@ -92,6 +92,7 @@
                       paredit
                       highlight-parentheses
                       clojure-mode
+                      zig-mode
                       markdown-mode))
 
 (dolist (p my-packages)
@@ -309,10 +310,10 @@
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save)))
-         
+
 ;; lsp-dart: https://emacs-lsp.github.io/lsp-dart/
 ;; M-x lsp-dart-show-outline
-(setq package-selected-packages 
+(setq package-selected-packages
   '(dart-mode lsp-mode lsp-dart lsp-treemacs flycheck company
     ;; Optional packages
     lsp-ui company hover))
@@ -324,4 +325,8 @@
 (add-hook 'dart-mode-hook 'lsp)
 
 (setq gc-cons-threshold (* 100 1024 1024)
-      read-process-output-max (* 1024 1024))         
+      read-process-output-max (* 1024 1024))
+
+;; Zig
+(autoload 'zig-mode "zig-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.zig\\'" . zig-mode))
